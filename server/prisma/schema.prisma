@@ -1,0 +1,43 @@
+generator client {
+    provider = 'prisma-client-js'
+}
+
+datasource db {
+    provider = 'postgresql'
+    url = env('DATABASE_URL')
+}
+
+model User {
+   id               String          @id @default(uuid())
+  name             String
+  email            String          @unique
+  password         String
+  avatarUrl        String?
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+  accountId        String          @unique @default(uuid())
+  initialBalance   Float?
+}
+
+model Transaction {
+      id                   String     @id @default(uuid())
+  description          String?
+  amount               Float
+  createdAt  DateTime   @default(now())
+  date                 DateTime   @default(now())
+  isRecurring          Boolean    @default(false)
+  categoryId           String?
+  category             Category?  @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  senderId             String?
+  sender               User?      @relation("senderTransactions", fields: [senderId], references: [accountId], onDelete: SetNull)
+  recipientId          String?
+  recipient            User?      @relation("recipientTransactions", fields: [recipientId], references: [accountId], onDelete: SetNull)
+  userId               String
+  user                 User       @relation("userTransactions", fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([categoryId])
+  @@index([senderId])
+  @@index([recipientId])
+  @@map("transactions")
+}
