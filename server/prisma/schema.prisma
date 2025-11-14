@@ -1,5 +1,6 @@
 generator client {
   provider = "prisma-client-js"
+  output = "./generated/client"
 }
 
 datasource db {
@@ -27,7 +28,6 @@ model User {
   sentRecurringBills     RecurringBill[]  @relation("recurringBillSender")
   receivedRecurringBills RecurringBill[]  @relation("recurringBillRecipient")
   accounts               Account[]
-  // sessions          Session[]
   recurringAlerts        RecurringAlert[]
   budgetAlerts           BudgetAlert[]
 
@@ -37,7 +37,7 @@ model User {
   @@map("users")
 }
 
-// ==================== Authentication Models ====================
+
 model PasswordRecovery {
   id     String  @id @default(uuid())
   userId String
