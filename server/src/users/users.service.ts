@@ -5,7 +5,7 @@ import {
 } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { UpdateProfileDto } from './dto/update-profile.dto';
-import { UpdatePreferencesDto } from './dto/update-preference.dto';
+import { UpdatePreferencesDto } from './dto/update-preferences.dto';
 
 @Injectable()
 export class UsersService {
@@ -109,12 +109,12 @@ export class UsersService {
     });
 
     // Get pots count
-    const billsCount = await this.prisma.bill.count({
+    const potsCount = await this.prisma.pot.count({
       where: { userId },
     });
 
     //  Get bills count
-    const billsCount = await this.prisma.bill.count({
+    const billsCount = await this.prisma.recurringBill.count({
       where: { userId },
     });
 

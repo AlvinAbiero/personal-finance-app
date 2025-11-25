@@ -1,16 +1,8 @@
-import {
-  Controller,
-  Get,
-  Put,
-  Delete,
-  Body,
-  UseGuards,
-  Param,
-} from '@nestjs/common';
+import { Controller, Get, Put, Delete, Body, UseGuards } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { UpdateProfileDto } from './dto/update-profile.dto';
-import { UpdatePreferencesDto } from './dto/update-preference.dto';
-import { JwtAuthGuard } from '../auth/guards/jwt.guard';
+import { UpdatePreferencesDto } from './dto/update-preferences.dto';
+import { JwtAuthGuard } from '../auth/guards/jwt.guards';
 import { CurrentUser } from '../common/decorators/current-user.decorator';
 
 @Controller('users')
@@ -49,11 +41,11 @@ export class UsersController {
 
   @Delete('account')
   async deletAccount(@CurrentUser() user: any) {
-    return this.usersService.deletAccount(user.userId);
+    return this.usersService.deleteAccount(user.userId);
   }
 
   @Get('health')
-  async health() {
+  health() {
     return { status: 'User service is healthy' };
   }
 }
