@@ -28,8 +28,11 @@ export class AuthController {
   @Public()
   @Post('refresh')
   @UseGuards(RefreshJwtGuard)
-  async refreshToken(@CurrentUser() user: any) {
-    return this.authService.refreshToken(user.userId, user.email);
+  refreshToken(
+    @CurrentUser('id') userId: string,
+    @CurrentUser('email') email: string,
+  ) {
+    return this.authService.refreshToken(userId, email);
   }
 
   @Public()
@@ -46,13 +49,13 @@ export class AuthController {
 
   @UseGuards(JwtAuthGuard)
   @Post('logout')
-  async logout() {
+  logout() {
     return this.authService.logout();
   }
 
   @UseGuards(JwtAuthGuard)
   @Get('profile')
-  async getProfile(@CurrentUser() user: any) {
-    return { user };
+  async getProfile(@CurrentUser('id') userId: string) {
+    return await this.authService.getProfile(userId);
   }
 }

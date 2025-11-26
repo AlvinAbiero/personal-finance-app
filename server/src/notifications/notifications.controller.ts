@@ -27,4 +27,30 @@ export class NotificationsController {
       parseInt(limit),
     );
   }
+
+  @Get('unread')
+  async getUnreadNotifications(@CurrentUser('id') userId: string) {
+    return this.notificationsService.getUnreadNotifications(userId);
+  }
+
+  @Patch(':id/read')
+  async markAsRead(
+    @CurrentUser('id') userId: string,
+    @Param('id') notificationId: string,
+  ) {
+    return this.notificationsService.markAsRead(userId, notificationId);
+  }
+
+  @Patch('read-all')
+  async markAllAsRead(@CurrentUser('id') userId: string) {
+    return this.notificationsService.markAllAsRead(userId);
+  }
+
+  @Delete(':id')
+  async deleteNotification(
+    @CurrentUser('id') userId: string,
+    @Param('id') notificationId: string,
+  ) {
+    return this.notificationsService.deleteNotification(userId, notificationId);
+  }
 }

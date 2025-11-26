@@ -9,12 +9,10 @@ import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { PrismaService } from '../prisma/prisma.service';
 import { EmailService } from '../email/email.service';
-import {
-  RegisterDto,
-  LoginDto,
-  PasswordRecoveryDto,
-  ResetPasswordDto,
-} from './dto';
+import { RegisterDto } from './dto/register.dto';
+import { LoginDto } from './dto/login.dto';
+import { PasswordRecoveryDto } from './dto/password-recovery.dto';
+import { ResetPasswordDto } from './dto/password-recovery.dto';
 import { HelperUtils } from '../utils/helpers';
 
 @Injectable()
@@ -93,7 +91,7 @@ export class AuthService {
     };
   }
 
-  async refreshToken(userId: string, email: string) {
+  refreshToken(userId: string, email: string) {
     const tokens = this.generateTokens(userId, email);
     return tokens;
   }
@@ -115,11 +113,11 @@ export class AuthService {
 
     // Generate recovery token
     const token = HelperUtils.generateRandomToken();
-    const expiresAt = new Date(
-      Date.now() +
-        parseInt(this.configService.get('PASSWORD_RECOVERY_TOKEN_EXPIRATION')) *
-          1000,
+    const tokenExpiration = this.configService.get<string>(
+      'PASSWORD_RECOVERY_TOKEN_EXPIRATION',
+      '3600',
     );
+    const expiresAt = new Date(Date.now() + parseInt(tokenExpiration) * 1000);
 
     await this.prisma.passwordRecovery.create({
       data: {
@@ -169,8 +167,28 @@ export class AuthService {
     return { message: 'Password reset successfully' };
   }
 
-  async logout() {
+  logout() {
     return { message: 'Logged out successfully' };
+  }
+
+  async getProfile(
+    userId: string,
+  ): Promise<{ id: string; email: string; name: string; currency: string }> {
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+      select: {
+        id: true,
+        email: true,
+        name: true,
+        currency: true,
+      },
+    });
+
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    return user;
   }
 
   private generateTokens(userId: string, email: string) {
