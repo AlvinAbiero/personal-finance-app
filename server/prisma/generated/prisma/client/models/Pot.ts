@@ -41,8 +41,11 @@ export type PotMinAggregateOutputType = {
   name: string | null
   targetAmount: number | null
   currentAmount: number | null
+  targetDate: Date | null
   userId: string | null
   themeId: string | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type PotMaxAggregateOutputType = {
@@ -50,8 +53,11 @@ export type PotMaxAggregateOutputType = {
   name: string | null
   targetAmount: number | null
   currentAmount: number | null
+  targetDate: Date | null
   userId: string | null
   themeId: string | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type PotCountAggregateOutputType = {
@@ -59,8 +65,11 @@ export type PotCountAggregateOutputType = {
   name: number
   targetAmount: number
   currentAmount: number
+  targetDate: number
   userId: number
   themeId: number
+  createdAt: number
+  updatedAt: number
   _all: number
 }
 
@@ -80,8 +89,11 @@ export type PotMinAggregateInputType = {
   name?: true
   targetAmount?: true
   currentAmount?: true
+  targetDate?: true
   userId?: true
   themeId?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type PotMaxAggregateInputType = {
@@ -89,8 +101,11 @@ export type PotMaxAggregateInputType = {
   name?: true
   targetAmount?: true
   currentAmount?: true
+  targetDate?: true
   userId?: true
   themeId?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type PotCountAggregateInputType = {
@@ -98,8 +113,11 @@ export type PotCountAggregateInputType = {
   name?: true
   targetAmount?: true
   currentAmount?: true
+  targetDate?: true
   userId?: true
   themeId?: true
+  createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -194,8 +212,11 @@ export type PotGroupByOutputType = {
   name: string
   targetAmount: number
   currentAmount: number
+  targetDate: Date | null
   userId: string
   themeId: string | null
+  createdAt: Date
+  updatedAt: Date
   _count: PotCountAggregateOutputType | null
   _avg: PotAvgAggregateOutputType | null
   _sum: PotSumAggregateOutputType | null
@@ -226,10 +247,14 @@ export type PotWhereInput = {
   name?: Prisma.StringFilter<"Pot"> | string
   targetAmount?: Prisma.FloatFilter<"Pot"> | number
   currentAmount?: Prisma.FloatFilter<"Pot"> | number
+  targetDate?: Prisma.DateTimeNullableFilter<"Pot"> | Date | string | null
   userId?: Prisma.StringFilter<"Pot"> | string
   themeId?: Prisma.StringNullableFilter<"Pot"> | string | null
+  createdAt?: Prisma.DateTimeFilter<"Pot"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Pot"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   theme?: Prisma.XOR<Prisma.ThemeNullableScalarRelationFilter, Prisma.ThemeWhereInput> | null
+  transactions?: Prisma.PotTransactionListRelationFilter
 }
 
 export type PotOrderByWithRelationInput = {
@@ -237,10 +262,14 @@ export type PotOrderByWithRelationInput = {
   name?: Prisma.SortOrder
   targetAmount?: Prisma.SortOrder
   currentAmount?: Prisma.SortOrder
+  targetDate?: Prisma.SortOrderInput | Prisma.SortOrder
   userId?: Prisma.SortOrder
   themeId?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
   theme?: Prisma.ThemeOrderByWithRelationInput
+  transactions?: Prisma.PotTransactionOrderByRelationAggregateInput
 }
 
 export type PotWhereUniqueInput = Prisma.AtLeast<{
@@ -251,10 +280,14 @@ export type PotWhereUniqueInput = Prisma.AtLeast<{
   name?: Prisma.StringFilter<"Pot"> | string
   targetAmount?: Prisma.FloatFilter<"Pot"> | number
   currentAmount?: Prisma.FloatFilter<"Pot"> | number
+  targetDate?: Prisma.DateTimeNullableFilter<"Pot"> | Date | string | null
   userId?: Prisma.StringFilter<"Pot"> | string
   themeId?: Prisma.StringNullableFilter<"Pot"> | string | null
+  createdAt?: Prisma.DateTimeFilter<"Pot"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Pot"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   theme?: Prisma.XOR<Prisma.ThemeNullableScalarRelationFilter, Prisma.ThemeWhereInput> | null
+  transactions?: Prisma.PotTransactionListRelationFilter
 }, "id">
 
 export type PotOrderByWithAggregationInput = {
@@ -262,8 +295,11 @@ export type PotOrderByWithAggregationInput = {
   name?: Prisma.SortOrder
   targetAmount?: Prisma.SortOrder
   currentAmount?: Prisma.SortOrder
+  targetDate?: Prisma.SortOrderInput | Prisma.SortOrder
   userId?: Prisma.SortOrder
   themeId?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.PotCountOrderByAggregateInput
   _avg?: Prisma.PotAvgOrderByAggregateInput
   _max?: Prisma.PotMaxOrderByAggregateInput
@@ -279,8 +315,11 @@ export type PotScalarWhereWithAggregatesInput = {
   name?: Prisma.StringWithAggregatesFilter<"Pot"> | string
   targetAmount?: Prisma.FloatWithAggregatesFilter<"Pot"> | number
   currentAmount?: Prisma.FloatWithAggregatesFilter<"Pot"> | number
+  targetDate?: Prisma.DateTimeNullableWithAggregatesFilter<"Pot"> | Date | string | null
   userId?: Prisma.StringWithAggregatesFilter<"Pot"> | string
   themeId?: Prisma.StringNullableWithAggregatesFilter<"Pot"> | string | null
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Pot"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Pot"> | Date | string
 }
 
 export type PotCreateInput = {
@@ -288,8 +327,12 @@ export type PotCreateInput = {
   name: string
   targetAmount: number
   currentAmount?: number
+  targetDate?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutPotsInput
   theme?: Prisma.ThemeCreateNestedOneWithoutPotsInput
+  transactions?: Prisma.PotTransactionCreateNestedManyWithoutPotInput
 }
 
 export type PotUncheckedCreateInput = {
@@ -297,8 +340,12 @@ export type PotUncheckedCreateInput = {
   name: string
   targetAmount: number
   currentAmount?: number
+  targetDate?: Date | string | null
   userId: string
   themeId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  transactions?: Prisma.PotTransactionUncheckedCreateNestedManyWithoutPotInput
 }
 
 export type PotUpdateInput = {
@@ -306,8 +353,12 @@ export type PotUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   targetAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   currentAmount?: Prisma.FloatFieldUpdateOperationsInput | number
+  targetDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutPotsNestedInput
   theme?: Prisma.ThemeUpdateOneWithoutPotsNestedInput
+  transactions?: Prisma.PotTransactionUpdateManyWithoutPotNestedInput
 }
 
 export type PotUncheckedUpdateInput = {
@@ -315,8 +366,12 @@ export type PotUncheckedUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   targetAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   currentAmount?: Prisma.FloatFieldUpdateOperationsInput | number
+  targetDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   themeId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  transactions?: Prisma.PotTransactionUncheckedUpdateManyWithoutPotNestedInput
 }
 
 export type PotCreateManyInput = {
@@ -324,8 +379,11 @@ export type PotCreateManyInput = {
   name: string
   targetAmount: number
   currentAmount?: number
+  targetDate?: Date | string | null
   userId: string
   themeId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type PotUpdateManyMutationInput = {
@@ -333,6 +391,9 @@ export type PotUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   targetAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   currentAmount?: Prisma.FloatFieldUpdateOperationsInput | number
+  targetDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PotUncheckedUpdateManyInput = {
@@ -340,8 +401,11 @@ export type PotUncheckedUpdateManyInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   targetAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   currentAmount?: Prisma.FloatFieldUpdateOperationsInput | number
+  targetDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   themeId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PotListRelationFilter = {
@@ -359,8 +423,11 @@ export type PotCountOrderByAggregateInput = {
   name?: Prisma.SortOrder
   targetAmount?: Prisma.SortOrder
   currentAmount?: Prisma.SortOrder
+  targetDate?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   themeId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type PotAvgOrderByAggregateInput = {
@@ -373,8 +440,11 @@ export type PotMaxOrderByAggregateInput = {
   name?: Prisma.SortOrder
   targetAmount?: Prisma.SortOrder
   currentAmount?: Prisma.SortOrder
+  targetDate?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   themeId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type PotMinOrderByAggregateInput = {
@@ -382,13 +452,21 @@ export type PotMinOrderByAggregateInput = {
   name?: Prisma.SortOrder
   targetAmount?: Prisma.SortOrder
   currentAmount?: Prisma.SortOrder
+  targetDate?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   themeId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type PotSumOrderByAggregateInput = {
   targetAmount?: Prisma.SortOrder
   currentAmount?: Prisma.SortOrder
+}
+
+export type PotScalarRelationFilter = {
+  is?: Prisma.PotWhereInput
+  isNot?: Prisma.PotWhereInput
 }
 
 export type PotCreateNestedManyWithoutUserInput = {
@@ -431,6 +509,20 @@ export type PotUncheckedUpdateManyWithoutUserNestedInput = {
   update?: Prisma.PotUpdateWithWhereUniqueWithoutUserInput | Prisma.PotUpdateWithWhereUniqueWithoutUserInput[]
   updateMany?: Prisma.PotUpdateManyWithWhereWithoutUserInput | Prisma.PotUpdateManyWithWhereWithoutUserInput[]
   deleteMany?: Prisma.PotScalarWhereInput | Prisma.PotScalarWhereInput[]
+}
+
+export type PotCreateNestedOneWithoutTransactionsInput = {
+  create?: Prisma.XOR<Prisma.PotCreateWithoutTransactionsInput, Prisma.PotUncheckedCreateWithoutTransactionsInput>
+  connectOrCreate?: Prisma.PotCreateOrConnectWithoutTransactionsInput
+  connect?: Prisma.PotWhereUniqueInput
+}
+
+export type PotUpdateOneRequiredWithoutTransactionsNestedInput = {
+  create?: Prisma.XOR<Prisma.PotCreateWithoutTransactionsInput, Prisma.PotUncheckedCreateWithoutTransactionsInput>
+  connectOrCreate?: Prisma.PotCreateOrConnectWithoutTransactionsInput
+  upsert?: Prisma.PotUpsertWithoutTransactionsInput
+  connect?: Prisma.PotWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.PotUpdateToOneWithWhereWithoutTransactionsInput, Prisma.PotUpdateWithoutTransactionsInput>, Prisma.PotUncheckedUpdateWithoutTransactionsInput>
 }
 
 export type PotCreateNestedManyWithoutThemeInput = {
@@ -480,7 +572,11 @@ export type PotCreateWithoutUserInput = {
   name: string
   targetAmount: number
   currentAmount?: number
+  targetDate?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   theme?: Prisma.ThemeCreateNestedOneWithoutPotsInput
+  transactions?: Prisma.PotTransactionCreateNestedManyWithoutPotInput
 }
 
 export type PotUncheckedCreateWithoutUserInput = {
@@ -488,7 +584,11 @@ export type PotUncheckedCreateWithoutUserInput = {
   name: string
   targetAmount: number
   currentAmount?: number
+  targetDate?: Date | string | null
   themeId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  transactions?: Prisma.PotTransactionUncheckedCreateNestedManyWithoutPotInput
 }
 
 export type PotCreateOrConnectWithoutUserInput = {
@@ -525,8 +625,75 @@ export type PotScalarWhereInput = {
   name?: Prisma.StringFilter<"Pot"> | string
   targetAmount?: Prisma.FloatFilter<"Pot"> | number
   currentAmount?: Prisma.FloatFilter<"Pot"> | number
+  targetDate?: Prisma.DateTimeNullableFilter<"Pot"> | Date | string | null
   userId?: Prisma.StringFilter<"Pot"> | string
   themeId?: Prisma.StringNullableFilter<"Pot"> | string | null
+  createdAt?: Prisma.DateTimeFilter<"Pot"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Pot"> | Date | string
+}
+
+export type PotCreateWithoutTransactionsInput = {
+  id?: string
+  name: string
+  targetAmount: number
+  currentAmount?: number
+  targetDate?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  user: Prisma.UserCreateNestedOneWithoutPotsInput
+  theme?: Prisma.ThemeCreateNestedOneWithoutPotsInput
+}
+
+export type PotUncheckedCreateWithoutTransactionsInput = {
+  id?: string
+  name: string
+  targetAmount: number
+  currentAmount?: number
+  targetDate?: Date | string | null
+  userId: string
+  themeId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type PotCreateOrConnectWithoutTransactionsInput = {
+  where: Prisma.PotWhereUniqueInput
+  create: Prisma.XOR<Prisma.PotCreateWithoutTransactionsInput, Prisma.PotUncheckedCreateWithoutTransactionsInput>
+}
+
+export type PotUpsertWithoutTransactionsInput = {
+  update: Prisma.XOR<Prisma.PotUpdateWithoutTransactionsInput, Prisma.PotUncheckedUpdateWithoutTransactionsInput>
+  create: Prisma.XOR<Prisma.PotCreateWithoutTransactionsInput, Prisma.PotUncheckedCreateWithoutTransactionsInput>
+  where?: Prisma.PotWhereInput
+}
+
+export type PotUpdateToOneWithWhereWithoutTransactionsInput = {
+  where?: Prisma.PotWhereInput
+  data: Prisma.XOR<Prisma.PotUpdateWithoutTransactionsInput, Prisma.PotUncheckedUpdateWithoutTransactionsInput>
+}
+
+export type PotUpdateWithoutTransactionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  targetAmount?: Prisma.FloatFieldUpdateOperationsInput | number
+  currentAmount?: Prisma.FloatFieldUpdateOperationsInput | number
+  targetDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUpdateOneRequiredWithoutPotsNestedInput
+  theme?: Prisma.ThemeUpdateOneWithoutPotsNestedInput
+}
+
+export type PotUncheckedUpdateWithoutTransactionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  targetAmount?: Prisma.FloatFieldUpdateOperationsInput | number
+  currentAmount?: Prisma.FloatFieldUpdateOperationsInput | number
+  targetDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  themeId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PotCreateWithoutThemeInput = {
@@ -534,7 +701,11 @@ export type PotCreateWithoutThemeInput = {
   name: string
   targetAmount: number
   currentAmount?: number
+  targetDate?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutPotsInput
+  transactions?: Prisma.PotTransactionCreateNestedManyWithoutPotInput
 }
 
 export type PotUncheckedCreateWithoutThemeInput = {
@@ -542,7 +713,11 @@ export type PotUncheckedCreateWithoutThemeInput = {
   name: string
   targetAmount: number
   currentAmount?: number
+  targetDate?: Date | string | null
   userId: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  transactions?: Prisma.PotTransactionUncheckedCreateNestedManyWithoutPotInput
 }
 
 export type PotCreateOrConnectWithoutThemeInput = {
@@ -576,7 +751,10 @@ export type PotCreateManyUserInput = {
   name: string
   targetAmount: number
   currentAmount?: number
+  targetDate?: Date | string | null
   themeId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type PotUpdateWithoutUserInput = {
@@ -584,7 +762,11 @@ export type PotUpdateWithoutUserInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   targetAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   currentAmount?: Prisma.FloatFieldUpdateOperationsInput | number
+  targetDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   theme?: Prisma.ThemeUpdateOneWithoutPotsNestedInput
+  transactions?: Prisma.PotTransactionUpdateManyWithoutPotNestedInput
 }
 
 export type PotUncheckedUpdateWithoutUserInput = {
@@ -592,7 +774,11 @@ export type PotUncheckedUpdateWithoutUserInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   targetAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   currentAmount?: Prisma.FloatFieldUpdateOperationsInput | number
+  targetDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   themeId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  transactions?: Prisma.PotTransactionUncheckedUpdateManyWithoutPotNestedInput
 }
 
 export type PotUncheckedUpdateManyWithoutUserInput = {
@@ -600,7 +786,10 @@ export type PotUncheckedUpdateManyWithoutUserInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   targetAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   currentAmount?: Prisma.FloatFieldUpdateOperationsInput | number
+  targetDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   themeId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PotCreateManyThemeInput = {
@@ -608,7 +797,10 @@ export type PotCreateManyThemeInput = {
   name: string
   targetAmount: number
   currentAmount?: number
+  targetDate?: Date | string | null
   userId: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type PotUpdateWithoutThemeInput = {
@@ -616,7 +808,11 @@ export type PotUpdateWithoutThemeInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   targetAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   currentAmount?: Prisma.FloatFieldUpdateOperationsInput | number
+  targetDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutPotsNestedInput
+  transactions?: Prisma.PotTransactionUpdateManyWithoutPotNestedInput
 }
 
 export type PotUncheckedUpdateWithoutThemeInput = {
@@ -624,7 +820,11 @@ export type PotUncheckedUpdateWithoutThemeInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   targetAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   currentAmount?: Prisma.FloatFieldUpdateOperationsInput | number
+  targetDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  transactions?: Prisma.PotTransactionUncheckedUpdateManyWithoutPotNestedInput
 }
 
 export type PotUncheckedUpdateManyWithoutThemeInput = {
@@ -632,9 +832,41 @@ export type PotUncheckedUpdateManyWithoutThemeInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   targetAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   currentAmount?: Prisma.FloatFieldUpdateOperationsInput | number
+  targetDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
+
+/**
+ * Count Type PotCountOutputType
+ */
+
+export type PotCountOutputType = {
+  transactions: number
+}
+
+export type PotCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  transactions?: boolean | PotCountOutputTypeCountTransactionsArgs
+}
+
+/**
+ * PotCountOutputType without action
+ */
+export type PotCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PotCountOutputType
+   */
+  select?: Prisma.PotCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * PotCountOutputType without action
+ */
+export type PotCountOutputTypeCountTransactionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PotTransactionWhereInput
+}
 
 
 export type PotSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -642,10 +874,15 @@ export type PotSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = ru
   name?: boolean
   targetAmount?: boolean
   currentAmount?: boolean
+  targetDate?: boolean
   userId?: boolean
   themeId?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   theme?: boolean | Prisma.Pot$themeArgs<ExtArgs>
+  transactions?: boolean | Prisma.Pot$transactionsArgs<ExtArgs>
+  _count?: boolean | Prisma.PotCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["pot"]>
 
 export type PotSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -653,8 +890,11 @@ export type PotSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extension
   name?: boolean
   targetAmount?: boolean
   currentAmount?: boolean
+  targetDate?: boolean
   userId?: boolean
   themeId?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   theme?: boolean | Prisma.Pot$themeArgs<ExtArgs>
 }, ExtArgs["result"]["pot"]>
@@ -664,8 +904,11 @@ export type PotSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extension
   name?: boolean
   targetAmount?: boolean
   currentAmount?: boolean
+  targetDate?: boolean
   userId?: boolean
   themeId?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   theme?: boolean | Prisma.Pot$themeArgs<ExtArgs>
 }, ExtArgs["result"]["pot"]>
@@ -675,14 +918,19 @@ export type PotSelectScalar = {
   name?: boolean
   targetAmount?: boolean
   currentAmount?: boolean
+  targetDate?: boolean
   userId?: boolean
   themeId?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type PotOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "targetAmount" | "currentAmount" | "userId" | "themeId", ExtArgs["result"]["pot"]>
+export type PotOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "targetAmount" | "currentAmount" | "targetDate" | "userId" | "themeId" | "createdAt" | "updatedAt", ExtArgs["result"]["pot"]>
 export type PotInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   theme?: boolean | Prisma.Pot$themeArgs<ExtArgs>
+  transactions?: boolean | Prisma.Pot$transactionsArgs<ExtArgs>
+  _count?: boolean | Prisma.PotCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type PotIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -698,14 +946,18 @@ export type $PotPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   objects: {
     user: Prisma.$UserPayload<ExtArgs>
     theme: Prisma.$ThemePayload<ExtArgs> | null
+    transactions: Prisma.$PotTransactionPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     name: string
     targetAmount: number
     currentAmount: number
+    targetDate: Date | null
     userId: string
     themeId: string | null
+    createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["pot"]>
   composites: {}
 }
@@ -1102,6 +1354,7 @@ export interface Prisma__PotClient<T, Null = never, ExtArgs extends runtime.Type
   readonly [Symbol.toStringTag]: "PrismaPromise"
   user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   theme<T extends Prisma.Pot$themeArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Pot$themeArgs<ExtArgs>>): Prisma.Prisma__ThemeClient<runtime.Types.Result.GetResult<Prisma.$ThemePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  transactions<T extends Prisma.Pot$transactionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Pot$transactionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PotTransactionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1135,8 +1388,11 @@ export interface PotFieldRefs {
   readonly name: Prisma.FieldRef<"Pot", 'String'>
   readonly targetAmount: Prisma.FieldRef<"Pot", 'Float'>
   readonly currentAmount: Prisma.FieldRef<"Pot", 'Float'>
+  readonly targetDate: Prisma.FieldRef<"Pot", 'DateTime'>
   readonly userId: Prisma.FieldRef<"Pot", 'String'>
   readonly themeId: Prisma.FieldRef<"Pot", 'String'>
+  readonly createdAt: Prisma.FieldRef<"Pot", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"Pot", 'DateTime'>
 }
     
 
@@ -1549,6 +1805,30 @@ export type Pot$themeArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs 
    */
   include?: Prisma.ThemeInclude<ExtArgs> | null
   where?: Prisma.ThemeWhereInput
+}
+
+/**
+ * Pot.transactions
+ */
+export type Pot$transactionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PotTransaction
+   */
+  select?: Prisma.PotTransactionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PotTransaction
+   */
+  omit?: Prisma.PotTransactionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PotTransactionInclude<ExtArgs> | null
+  where?: Prisma.PotTransactionWhereInput
+  orderBy?: Prisma.PotTransactionOrderByWithRelationInput | Prisma.PotTransactionOrderByWithRelationInput[]
+  cursor?: Prisma.PotTransactionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PotTransactionScalarFieldEnum | Prisma.PotTransactionScalarFieldEnum[]
 }
 
 /**

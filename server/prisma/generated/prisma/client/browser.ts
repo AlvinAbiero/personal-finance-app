@@ -53,6 +53,11 @@ export type Budget = Prisma.BudgetModel
  */
 export type Pot = Prisma.PotModel
 /**
+ * Model PotTransaction
+ * 
+ */
+export type PotTransaction = Prisma.PotTransactionModel
+/**
  * Model Theme
  * 
  */

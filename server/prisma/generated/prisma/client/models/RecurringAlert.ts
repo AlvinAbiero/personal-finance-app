@@ -27,10 +27,12 @@ export type AggregateRecurringAlert = {
 export type RecurringAlertMinAggregateOutputType = {
   id: string | null
   userId: string | null
+  recurringBillId: string | null
   transactionId: string | null
   pattern: string | null
   lastDetectedDate: Date | null
   alertSent: boolean | null
+  alertSentAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -38,10 +40,12 @@ export type RecurringAlertMinAggregateOutputType = {
 export type RecurringAlertMaxAggregateOutputType = {
   id: string | null
   userId: string | null
+  recurringBillId: string | null
   transactionId: string | null
   pattern: string | null
   lastDetectedDate: Date | null
   alertSent: boolean | null
+  alertSentAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -49,10 +53,12 @@ export type RecurringAlertMaxAggregateOutputType = {
 export type RecurringAlertCountAggregateOutputType = {
   id: number
   userId: number
+  recurringBillId: number
   transactionId: number
   pattern: number
   lastDetectedDate: number
   alertSent: number
+  alertSentAt: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -62,10 +68,12 @@ export type RecurringAlertCountAggregateOutputType = {
 export type RecurringAlertMinAggregateInputType = {
   id?: true
   userId?: true
+  recurringBillId?: true
   transactionId?: true
   pattern?: true
   lastDetectedDate?: true
   alertSent?: true
+  alertSentAt?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -73,10 +81,12 @@ export type RecurringAlertMinAggregateInputType = {
 export type RecurringAlertMaxAggregateInputType = {
   id?: true
   userId?: true
+  recurringBillId?: true
   transactionId?: true
   pattern?: true
   lastDetectedDate?: true
   alertSent?: true
+  alertSentAt?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -84,10 +94,12 @@ export type RecurringAlertMaxAggregateInputType = {
 export type RecurringAlertCountAggregateInputType = {
   id?: true
   userId?: true
+  recurringBillId?: true
   transactionId?: true
   pattern?: true
   lastDetectedDate?: true
   alertSent?: true
+  alertSentAt?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -168,10 +180,12 @@ export type RecurringAlertGroupByArgs<ExtArgs extends runtime.Types.Extensions.I
 export type RecurringAlertGroupByOutputType = {
   id: string
   userId: string
+  recurringBillId: string | null
   transactionId: string | null
   pattern: string
   lastDetectedDate: Date
   alertSent: boolean
+  alertSentAt: Date | null
   createdAt: Date
   updatedAt: Date
   _count: RecurringAlertCountAggregateOutputType | null
@@ -200,10 +214,12 @@ export type RecurringAlertWhereInput = {
   NOT?: Prisma.RecurringAlertWhereInput | Prisma.RecurringAlertWhereInput[]
   id?: Prisma.StringFilter<"RecurringAlert"> | string
   userId?: Prisma.StringFilter<"RecurringAlert"> | string
+  recurringBillId?: Prisma.StringNullableFilter<"RecurringAlert"> | string | null
   transactionId?: Prisma.StringNullableFilter<"RecurringAlert"> | string | null
   pattern?: Prisma.StringFilter<"RecurringAlert"> | string
   lastDetectedDate?: Prisma.DateTimeFilter<"RecurringAlert"> | Date | string
   alertSent?: Prisma.BoolFilter<"RecurringAlert"> | boolean
+  alertSentAt?: Prisma.DateTimeNullableFilter<"RecurringAlert"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"RecurringAlert"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"RecurringAlert"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -212,10 +228,12 @@ export type RecurringAlertWhereInput = {
 export type RecurringAlertOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
+  recurringBillId?: Prisma.SortOrderInput | Prisma.SortOrder
   transactionId?: Prisma.SortOrderInput | Prisma.SortOrder
   pattern?: Prisma.SortOrder
   lastDetectedDate?: Prisma.SortOrder
   alertSent?: Prisma.SortOrder
+  alertSentAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
@@ -227,10 +245,12 @@ export type RecurringAlertWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.RecurringAlertWhereInput[]
   NOT?: Prisma.RecurringAlertWhereInput | Prisma.RecurringAlertWhereInput[]
   userId?: Prisma.StringFilter<"RecurringAlert"> | string
+  recurringBillId?: Prisma.StringNullableFilter<"RecurringAlert"> | string | null
   transactionId?: Prisma.StringNullableFilter<"RecurringAlert"> | string | null
   pattern?: Prisma.StringFilter<"RecurringAlert"> | string
   lastDetectedDate?: Prisma.DateTimeFilter<"RecurringAlert"> | Date | string
   alertSent?: Prisma.BoolFilter<"RecurringAlert"> | boolean
+  alertSentAt?: Prisma.DateTimeNullableFilter<"RecurringAlert"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"RecurringAlert"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"RecurringAlert"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -239,10 +259,12 @@ export type RecurringAlertWhereUniqueInput = Prisma.AtLeast<{
 export type RecurringAlertOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
+  recurringBillId?: Prisma.SortOrderInput | Prisma.SortOrder
   transactionId?: Prisma.SortOrderInput | Prisma.SortOrder
   pattern?: Prisma.SortOrder
   lastDetectedDate?: Prisma.SortOrder
   alertSent?: Prisma.SortOrder
+  alertSentAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.RecurringAlertCountOrderByAggregateInput
@@ -256,20 +278,24 @@ export type RecurringAlertScalarWhereWithAggregatesInput = {
   NOT?: Prisma.RecurringAlertScalarWhereWithAggregatesInput | Prisma.RecurringAlertScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"RecurringAlert"> | string
   userId?: Prisma.StringWithAggregatesFilter<"RecurringAlert"> | string
+  recurringBillId?: Prisma.StringNullableWithAggregatesFilter<"RecurringAlert"> | string | null
   transactionId?: Prisma.StringNullableWithAggregatesFilter<"RecurringAlert"> | string | null
   pattern?: Prisma.StringWithAggregatesFilter<"RecurringAlert"> | string
   lastDetectedDate?: Prisma.DateTimeWithAggregatesFilter<"RecurringAlert"> | Date | string
   alertSent?: Prisma.BoolWithAggregatesFilter<"RecurringAlert"> | boolean
+  alertSentAt?: Prisma.DateTimeNullableWithAggregatesFilter<"RecurringAlert"> | Date | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"RecurringAlert"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"RecurringAlert"> | Date | string
 }
 
 export type RecurringAlertCreateInput = {
   id?: string
+  recurringBillId?: string | null
   transactionId?: string | null
   pattern: string
   lastDetectedDate: Date | string
   alertSent?: boolean
+  alertSentAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutRecurringAlertsInput
@@ -278,20 +304,24 @@ export type RecurringAlertCreateInput = {
 export type RecurringAlertUncheckedCreateInput = {
   id?: string
   userId: string
+  recurringBillId?: string | null
   transactionId?: string | null
   pattern: string
   lastDetectedDate: Date | string
   alertSent?: boolean
+  alertSentAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
 
 export type RecurringAlertUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  recurringBillId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   transactionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pattern?: Prisma.StringFieldUpdateOperationsInput | string
   lastDetectedDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   alertSent?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  alertSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutRecurringAlertsNestedInput
@@ -300,10 +330,12 @@ export type RecurringAlertUpdateInput = {
 export type RecurringAlertUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
+  recurringBillId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   transactionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pattern?: Prisma.StringFieldUpdateOperationsInput | string
   lastDetectedDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   alertSent?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  alertSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -311,20 +343,24 @@ export type RecurringAlertUncheckedUpdateInput = {
 export type RecurringAlertCreateManyInput = {
   id?: string
   userId: string
+  recurringBillId?: string | null
   transactionId?: string | null
   pattern: string
   lastDetectedDate: Date | string
   alertSent?: boolean
+  alertSentAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
 
 export type RecurringAlertUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  recurringBillId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   transactionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pattern?: Prisma.StringFieldUpdateOperationsInput | string
   lastDetectedDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   alertSent?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  alertSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -332,10 +368,12 @@ export type RecurringAlertUpdateManyMutationInput = {
 export type RecurringAlertUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
+  recurringBillId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   transactionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pattern?: Prisma.StringFieldUpdateOperationsInput | string
   lastDetectedDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   alertSent?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  alertSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -353,10 +391,12 @@ export type RecurringAlertOrderByRelationAggregateInput = {
 export type RecurringAlertCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
+  recurringBillId?: Prisma.SortOrder
   transactionId?: Prisma.SortOrder
   pattern?: Prisma.SortOrder
   lastDetectedDate?: Prisma.SortOrder
   alertSent?: Prisma.SortOrder
+  alertSentAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -364,10 +404,12 @@ export type RecurringAlertCountOrderByAggregateInput = {
 export type RecurringAlertMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
+  recurringBillId?: Prisma.SortOrder
   transactionId?: Prisma.SortOrder
   pattern?: Prisma.SortOrder
   lastDetectedDate?: Prisma.SortOrder
   alertSent?: Prisma.SortOrder
+  alertSentAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -375,10 +417,12 @@ export type RecurringAlertMaxOrderByAggregateInput = {
 export type RecurringAlertMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
+  recurringBillId?: Prisma.SortOrder
   transactionId?: Prisma.SortOrder
   pattern?: Prisma.SortOrder
   lastDetectedDate?: Prisma.SortOrder
   alertSent?: Prisma.SortOrder
+  alertSentAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -427,20 +471,24 @@ export type RecurringAlertUncheckedUpdateManyWithoutUserNestedInput = {
 
 export type RecurringAlertCreateWithoutUserInput = {
   id?: string
+  recurringBillId?: string | null
   transactionId?: string | null
   pattern: string
   lastDetectedDate: Date | string
   alertSent?: boolean
+  alertSentAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
 
 export type RecurringAlertUncheckedCreateWithoutUserInput = {
   id?: string
+  recurringBillId?: string | null
   transactionId?: string | null
   pattern: string
   lastDetectedDate: Date | string
   alertSent?: boolean
+  alertSentAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -477,50 +525,60 @@ export type RecurringAlertScalarWhereInput = {
   NOT?: Prisma.RecurringAlertScalarWhereInput | Prisma.RecurringAlertScalarWhereInput[]
   id?: Prisma.StringFilter<"RecurringAlert"> | string
   userId?: Prisma.StringFilter<"RecurringAlert"> | string
+  recurringBillId?: Prisma.StringNullableFilter<"RecurringAlert"> | string | null
   transactionId?: Prisma.StringNullableFilter<"RecurringAlert"> | string | null
   pattern?: Prisma.StringFilter<"RecurringAlert"> | string
   lastDetectedDate?: Prisma.DateTimeFilter<"RecurringAlert"> | Date | string
   alertSent?: Prisma.BoolFilter<"RecurringAlert"> | boolean
+  alertSentAt?: Prisma.DateTimeNullableFilter<"RecurringAlert"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"RecurringAlert"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"RecurringAlert"> | Date | string
 }
 
 export type RecurringAlertCreateManyUserInput = {
   id?: string
+  recurringBillId?: string | null
   transactionId?: string | null
   pattern: string
   lastDetectedDate: Date | string
   alertSent?: boolean
+  alertSentAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
 
 export type RecurringAlertUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  recurringBillId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   transactionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pattern?: Prisma.StringFieldUpdateOperationsInput | string
   lastDetectedDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   alertSent?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  alertSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type RecurringAlertUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  recurringBillId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   transactionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pattern?: Prisma.StringFieldUpdateOperationsInput | string
   lastDetectedDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   alertSent?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  alertSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type RecurringAlertUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  recurringBillId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   transactionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pattern?: Prisma.StringFieldUpdateOperationsInput | string
   lastDetectedDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   alertSent?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  alertSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -530,10 +588,12 @@ export type RecurringAlertUncheckedUpdateManyWithoutUserInput = {
 export type RecurringAlertSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   userId?: boolean
+  recurringBillId?: boolean
   transactionId?: boolean
   pattern?: boolean
   lastDetectedDate?: boolean
   alertSent?: boolean
+  alertSentAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -542,10 +602,12 @@ export type RecurringAlertSelect<ExtArgs extends runtime.Types.Extensions.Intern
 export type RecurringAlertSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   userId?: boolean
+  recurringBillId?: boolean
   transactionId?: boolean
   pattern?: boolean
   lastDetectedDate?: boolean
   alertSent?: boolean
+  alertSentAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -554,10 +616,12 @@ export type RecurringAlertSelectCreateManyAndReturn<ExtArgs extends runtime.Type
 export type RecurringAlertSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   userId?: boolean
+  recurringBillId?: boolean
   transactionId?: boolean
   pattern?: boolean
   lastDetectedDate?: boolean
   alertSent?: boolean
+  alertSentAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -566,15 +630,17 @@ export type RecurringAlertSelectUpdateManyAndReturn<ExtArgs extends runtime.Type
 export type RecurringAlertSelectScalar = {
   id?: boolean
   userId?: boolean
+  recurringBillId?: boolean
   transactionId?: boolean
   pattern?: boolean
   lastDetectedDate?: boolean
   alertSent?: boolean
+  alertSentAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type RecurringAlertOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "transactionId" | "pattern" | "lastDetectedDate" | "alertSent" | "createdAt" | "updatedAt", ExtArgs["result"]["recurringAlert"]>
+export type RecurringAlertOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "recurringBillId" | "transactionId" | "pattern" | "lastDetectedDate" | "alertSent" | "alertSentAt" | "createdAt" | "updatedAt", ExtArgs["result"]["recurringAlert"]>
 export type RecurringAlertInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -593,10 +659,12 @@ export type $RecurringAlertPayload<ExtArgs extends runtime.Types.Extensions.Inte
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     userId: string
+    recurringBillId: string | null
     transactionId: string | null
     pattern: string
     lastDetectedDate: Date
     alertSent: boolean
+    alertSentAt: Date | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["recurringAlert"]>
@@ -1025,10 +1093,12 @@ export interface Prisma__RecurringAlertClient<T, Null = never, ExtArgs extends r
 export interface RecurringAlertFieldRefs {
   readonly id: Prisma.FieldRef<"RecurringAlert", 'String'>
   readonly userId: Prisma.FieldRef<"RecurringAlert", 'String'>
+  readonly recurringBillId: Prisma.FieldRef<"RecurringAlert", 'String'>
   readonly transactionId: Prisma.FieldRef<"RecurringAlert", 'String'>
   readonly pattern: Prisma.FieldRef<"RecurringAlert", 'String'>
   readonly lastDetectedDate: Prisma.FieldRef<"RecurringAlert", 'DateTime'>
   readonly alertSent: Prisma.FieldRef<"RecurringAlert", 'Boolean'>
+  readonly alertSentAt: Prisma.FieldRef<"RecurringAlert", 'DateTime'>
   readonly createdAt: Prisma.FieldRef<"RecurringAlert", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"RecurringAlert", 'DateTime'>
 }

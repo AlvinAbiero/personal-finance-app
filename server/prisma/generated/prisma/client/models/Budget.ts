@@ -28,74 +28,120 @@ export type AggregateBudget = {
 
 export type BudgetAvgAggregateOutputType = {
   amount: number | null
+  spent: number | null
 }
 
 export type BudgetSumAggregateOutputType = {
   amount: number | null
+  spent: number | null
 }
 
 export type BudgetMinAggregateOutputType = {
   id: string | null
   amount: number | null
-  createdAt: Date | null
+  spent: number | null
+  period: string | null
+  startDate: Date | null
+  endDate: Date | null
   categoryId: string | null
   themeId: string | null
   userId: string | null
+  isActive: boolean | null
+  deletedAt: Date | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type BudgetMaxAggregateOutputType = {
   id: string | null
   amount: number | null
-  createdAt: Date | null
+  spent: number | null
+  period: string | null
+  startDate: Date | null
+  endDate: Date | null
   categoryId: string | null
   themeId: string | null
   userId: string | null
+  isActive: boolean | null
+  deletedAt: Date | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type BudgetCountAggregateOutputType = {
   id: number
   amount: number
-  createdAt: number
+  spent: number
+  period: number
+  startDate: number
+  endDate: number
   categoryId: number
   themeId: number
   userId: number
+  isActive: number
+  deletedAt: number
+  createdAt: number
+  updatedAt: number
   _all: number
 }
 
 
 export type BudgetAvgAggregateInputType = {
   amount?: true
+  spent?: true
 }
 
 export type BudgetSumAggregateInputType = {
   amount?: true
+  spent?: true
 }
 
 export type BudgetMinAggregateInputType = {
   id?: true
   amount?: true
-  createdAt?: true
+  spent?: true
+  period?: true
+  startDate?: true
+  endDate?: true
   categoryId?: true
   themeId?: true
   userId?: true
+  isActive?: true
+  deletedAt?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type BudgetMaxAggregateInputType = {
   id?: true
   amount?: true
-  createdAt?: true
+  spent?: true
+  period?: true
+  startDate?: true
+  endDate?: true
   categoryId?: true
   themeId?: true
   userId?: true
+  isActive?: true
+  deletedAt?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type BudgetCountAggregateInputType = {
   id?: true
   amount?: true
-  createdAt?: true
+  spent?: true
+  period?: true
+  startDate?: true
+  endDate?: true
   categoryId?: true
   themeId?: true
   userId?: true
+  isActive?: true
+  deletedAt?: true
+  createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -188,10 +234,17 @@ export type BudgetGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalA
 export type BudgetGroupByOutputType = {
   id: string
   amount: number
-  createdAt: Date
+  spent: number
+  period: string
+  startDate: Date
+  endDate: Date | null
   categoryId: string
   themeId: string | null
   userId: string
+  isActive: boolean
+  deletedAt: Date | null
+  createdAt: Date
+  updatedAt: Date
   _count: BudgetCountAggregateOutputType | null
   _avg: BudgetAvgAggregateOutputType | null
   _sum: BudgetSumAggregateOutputType | null
@@ -220,10 +273,17 @@ export type BudgetWhereInput = {
   NOT?: Prisma.BudgetWhereInput | Prisma.BudgetWhereInput[]
   id?: Prisma.StringFilter<"Budget"> | string
   amount?: Prisma.FloatFilter<"Budget"> | number
-  createdAt?: Prisma.DateTimeFilter<"Budget"> | Date | string
+  spent?: Prisma.FloatFilter<"Budget"> | number
+  period?: Prisma.StringFilter<"Budget"> | string
+  startDate?: Prisma.DateTimeFilter<"Budget"> | Date | string
+  endDate?: Prisma.DateTimeNullableFilter<"Budget"> | Date | string | null
   categoryId?: Prisma.StringFilter<"Budget"> | string
   themeId?: Prisma.StringNullableFilter<"Budget"> | string | null
   userId?: Prisma.StringFilter<"Budget"> | string
+  isActive?: Prisma.BoolFilter<"Budget"> | boolean
+  deletedAt?: Prisma.DateTimeNullableFilter<"Budget"> | Date | string | null
+  createdAt?: Prisma.DateTimeFilter<"Budget"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Budget"> | Date | string
   category?: Prisma.XOR<Prisma.CategoryScalarRelationFilter, Prisma.CategoryWhereInput>
   theme?: Prisma.XOR<Prisma.ThemeNullableScalarRelationFilter, Prisma.ThemeWhereInput> | null
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -232,10 +292,17 @@ export type BudgetWhereInput = {
 export type BudgetOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   amount?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
+  spent?: Prisma.SortOrder
+  period?: Prisma.SortOrder
+  startDate?: Prisma.SortOrder
+  endDate?: Prisma.SortOrderInput | Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   themeId?: Prisma.SortOrderInput | Prisma.SortOrder
   userId?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   category?: Prisma.CategoryOrderByWithRelationInput
   theme?: Prisma.ThemeOrderByWithRelationInput
   user?: Prisma.UserOrderByWithRelationInput
@@ -247,10 +314,17 @@ export type BudgetWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.BudgetWhereInput[]
   NOT?: Prisma.BudgetWhereInput | Prisma.BudgetWhereInput[]
   amount?: Prisma.FloatFilter<"Budget"> | number
-  createdAt?: Prisma.DateTimeFilter<"Budget"> | Date | string
+  spent?: Prisma.FloatFilter<"Budget"> | number
+  period?: Prisma.StringFilter<"Budget"> | string
+  startDate?: Prisma.DateTimeFilter<"Budget"> | Date | string
+  endDate?: Prisma.DateTimeNullableFilter<"Budget"> | Date | string | null
   categoryId?: Prisma.StringFilter<"Budget"> | string
   themeId?: Prisma.StringNullableFilter<"Budget"> | string | null
   userId?: Prisma.StringFilter<"Budget"> | string
+  isActive?: Prisma.BoolFilter<"Budget"> | boolean
+  deletedAt?: Prisma.DateTimeNullableFilter<"Budget"> | Date | string | null
+  createdAt?: Prisma.DateTimeFilter<"Budget"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Budget"> | Date | string
   category?: Prisma.XOR<Prisma.CategoryScalarRelationFilter, Prisma.CategoryWhereInput>
   theme?: Prisma.XOR<Prisma.ThemeNullableScalarRelationFilter, Prisma.ThemeWhereInput> | null
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -259,10 +333,17 @@ export type BudgetWhereUniqueInput = Prisma.AtLeast<{
 export type BudgetOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   amount?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
+  spent?: Prisma.SortOrder
+  period?: Prisma.SortOrder
+  startDate?: Prisma.SortOrder
+  endDate?: Prisma.SortOrderInput | Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   themeId?: Prisma.SortOrderInput | Prisma.SortOrder
   userId?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.BudgetCountOrderByAggregateInput
   _avg?: Prisma.BudgetAvgOrderByAggregateInput
   _max?: Prisma.BudgetMaxOrderByAggregateInput
@@ -276,16 +357,30 @@ export type BudgetScalarWhereWithAggregatesInput = {
   NOT?: Prisma.BudgetScalarWhereWithAggregatesInput | Prisma.BudgetScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Budget"> | string
   amount?: Prisma.FloatWithAggregatesFilter<"Budget"> | number
-  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Budget"> | Date | string
+  spent?: Prisma.FloatWithAggregatesFilter<"Budget"> | number
+  period?: Prisma.StringWithAggregatesFilter<"Budget"> | string
+  startDate?: Prisma.DateTimeWithAggregatesFilter<"Budget"> | Date | string
+  endDate?: Prisma.DateTimeNullableWithAggregatesFilter<"Budget"> | Date | string | null
   categoryId?: Prisma.StringWithAggregatesFilter<"Budget"> | string
   themeId?: Prisma.StringNullableWithAggregatesFilter<"Budget"> | string | null
   userId?: Prisma.StringWithAggregatesFilter<"Budget"> | string
+  isActive?: Prisma.BoolWithAggregatesFilter<"Budget"> | boolean
+  deletedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Budget"> | Date | string | null
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Budget"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Budget"> | Date | string
 }
 
 export type BudgetCreateInput = {
   id?: string
   amount: number
+  spent?: number
+  period?: string
+  startDate?: Date | string
+  endDate?: Date | string | null
+  isActive?: boolean
+  deletedAt?: Date | string | null
   createdAt?: Date | string
+  updatedAt?: Date | string
   category: Prisma.CategoryCreateNestedOneWithoutBudgetsInput
   theme?: Prisma.ThemeCreateNestedOneWithoutBudgetsInput
   user: Prisma.UserCreateNestedOneWithoutBudgetsInput
@@ -294,16 +389,30 @@ export type BudgetCreateInput = {
 export type BudgetUncheckedCreateInput = {
   id?: string
   amount: number
-  createdAt?: Date | string
+  spent?: number
+  period?: string
+  startDate?: Date | string
+  endDate?: Date | string | null
   categoryId: string
   themeId?: string | null
   userId: string
+  isActive?: boolean
+  deletedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type BudgetUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
+  spent?: Prisma.FloatFieldUpdateOperationsInput | number
+  period?: Prisma.StringFieldUpdateOperationsInput | string
+  startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   category?: Prisma.CategoryUpdateOneRequiredWithoutBudgetsNestedInput
   theme?: Prisma.ThemeUpdateOneWithoutBudgetsNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutBudgetsNestedInput
@@ -312,34 +421,62 @@ export type BudgetUpdateInput = {
 export type BudgetUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  spent?: Prisma.FloatFieldUpdateOperationsInput | number
+  period?: Prisma.StringFieldUpdateOperationsInput | string
+  startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   themeId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type BudgetCreateManyInput = {
   id?: string
   amount: number
-  createdAt?: Date | string
+  spent?: number
+  period?: string
+  startDate?: Date | string
+  endDate?: Date | string | null
   categoryId: string
   themeId?: string | null
   userId: string
+  isActive?: boolean
+  deletedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type BudgetUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
+  spent?: Prisma.FloatFieldUpdateOperationsInput | number
+  period?: Prisma.StringFieldUpdateOperationsInput | string
+  startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type BudgetUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  spent?: Prisma.FloatFieldUpdateOperationsInput | number
+  period?: Prisma.StringFieldUpdateOperationsInput | string
+  startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   themeId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type BudgetListRelationFilter = {
@@ -355,36 +492,59 @@ export type BudgetOrderByRelationAggregateInput = {
 export type BudgetCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   amount?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
+  spent?: Prisma.SortOrder
+  period?: Prisma.SortOrder
+  startDate?: Prisma.SortOrder
+  endDate?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   themeId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type BudgetAvgOrderByAggregateInput = {
   amount?: Prisma.SortOrder
+  spent?: Prisma.SortOrder
 }
 
 export type BudgetMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   amount?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
+  spent?: Prisma.SortOrder
+  period?: Prisma.SortOrder
+  startDate?: Prisma.SortOrder
+  endDate?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   themeId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type BudgetMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   amount?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
+  spent?: Prisma.SortOrder
+  period?: Prisma.SortOrder
+  startDate?: Prisma.SortOrder
+  endDate?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   themeId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type BudgetSumOrderByAggregateInput = {
   amount?: Prisma.SortOrder
+  spent?: Prisma.SortOrder
 }
 
 export type BudgetCreateNestedManyWithoutUserInput = {
@@ -516,7 +676,14 @@ export type BudgetUncheckedUpdateManyWithoutThemeNestedInput = {
 export type BudgetCreateWithoutUserInput = {
   id?: string
   amount: number
+  spent?: number
+  period?: string
+  startDate?: Date | string
+  endDate?: Date | string | null
+  isActive?: boolean
+  deletedAt?: Date | string | null
   createdAt?: Date | string
+  updatedAt?: Date | string
   category: Prisma.CategoryCreateNestedOneWithoutBudgetsInput
   theme?: Prisma.ThemeCreateNestedOneWithoutBudgetsInput
 }
@@ -524,9 +691,16 @@ export type BudgetCreateWithoutUserInput = {
 export type BudgetUncheckedCreateWithoutUserInput = {
   id?: string
   amount: number
-  createdAt?: Date | string
+  spent?: number
+  period?: string
+  startDate?: Date | string
+  endDate?: Date | string | null
   categoryId: string
   themeId?: string | null
+  isActive?: boolean
+  deletedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type BudgetCreateOrConnectWithoutUserInput = {
@@ -561,16 +735,30 @@ export type BudgetScalarWhereInput = {
   NOT?: Prisma.BudgetScalarWhereInput | Prisma.BudgetScalarWhereInput[]
   id?: Prisma.StringFilter<"Budget"> | string
   amount?: Prisma.FloatFilter<"Budget"> | number
-  createdAt?: Prisma.DateTimeFilter<"Budget"> | Date | string
+  spent?: Prisma.FloatFilter<"Budget"> | number
+  period?: Prisma.StringFilter<"Budget"> | string
+  startDate?: Prisma.DateTimeFilter<"Budget"> | Date | string
+  endDate?: Prisma.DateTimeNullableFilter<"Budget"> | Date | string | null
   categoryId?: Prisma.StringFilter<"Budget"> | string
   themeId?: Prisma.StringNullableFilter<"Budget"> | string | null
   userId?: Prisma.StringFilter<"Budget"> | string
+  isActive?: Prisma.BoolFilter<"Budget"> | boolean
+  deletedAt?: Prisma.DateTimeNullableFilter<"Budget"> | Date | string | null
+  createdAt?: Prisma.DateTimeFilter<"Budget"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Budget"> | Date | string
 }
 
 export type BudgetCreateWithoutCategoryInput = {
   id?: string
   amount: number
+  spent?: number
+  period?: string
+  startDate?: Date | string
+  endDate?: Date | string | null
+  isActive?: boolean
+  deletedAt?: Date | string | null
   createdAt?: Date | string
+  updatedAt?: Date | string
   theme?: Prisma.ThemeCreateNestedOneWithoutBudgetsInput
   user: Prisma.UserCreateNestedOneWithoutBudgetsInput
 }
@@ -578,9 +766,16 @@ export type BudgetCreateWithoutCategoryInput = {
 export type BudgetUncheckedCreateWithoutCategoryInput = {
   id?: string
   amount: number
-  createdAt?: Date | string
+  spent?: number
+  period?: string
+  startDate?: Date | string
+  endDate?: Date | string | null
   themeId?: string | null
   userId: string
+  isActive?: boolean
+  deletedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type BudgetCreateOrConnectWithoutCategoryInput = {
@@ -612,7 +807,14 @@ export type BudgetUpdateManyWithWhereWithoutCategoryInput = {
 export type BudgetCreateWithoutThemeInput = {
   id?: string
   amount: number
+  spent?: number
+  period?: string
+  startDate?: Date | string
+  endDate?: Date | string | null
+  isActive?: boolean
+  deletedAt?: Date | string | null
   createdAt?: Date | string
+  updatedAt?: Date | string
   category: Prisma.CategoryCreateNestedOneWithoutBudgetsInput
   user: Prisma.UserCreateNestedOneWithoutBudgetsInput
 }
@@ -620,9 +822,16 @@ export type BudgetCreateWithoutThemeInput = {
 export type BudgetUncheckedCreateWithoutThemeInput = {
   id?: string
   amount: number
-  createdAt?: Date | string
+  spent?: number
+  period?: string
+  startDate?: Date | string
+  endDate?: Date | string | null
   categoryId: string
   userId: string
+  isActive?: boolean
+  deletedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type BudgetCreateOrConnectWithoutThemeInput = {
@@ -654,15 +863,29 @@ export type BudgetUpdateManyWithWhereWithoutThemeInput = {
 export type BudgetCreateManyUserInput = {
   id?: string
   amount: number
-  createdAt?: Date | string
+  spent?: number
+  period?: string
+  startDate?: Date | string
+  endDate?: Date | string | null
   categoryId: string
   themeId?: string | null
+  isActive?: boolean
+  deletedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type BudgetUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
+  spent?: Prisma.FloatFieldUpdateOperationsInput | number
+  period?: Prisma.StringFieldUpdateOperationsInput | string
+  startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   category?: Prisma.CategoryUpdateOneRequiredWithoutBudgetsNestedInput
   theme?: Prisma.ThemeUpdateOneWithoutBudgetsNestedInput
 }
@@ -670,31 +893,59 @@ export type BudgetUpdateWithoutUserInput = {
 export type BudgetUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  spent?: Prisma.FloatFieldUpdateOperationsInput | number
+  period?: Prisma.StringFieldUpdateOperationsInput | string
+  startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   themeId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type BudgetUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  spent?: Prisma.FloatFieldUpdateOperationsInput | number
+  period?: Prisma.StringFieldUpdateOperationsInput | string
+  startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   themeId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type BudgetCreateManyCategoryInput = {
   id?: string
   amount: number
-  createdAt?: Date | string
+  spent?: number
+  period?: string
+  startDate?: Date | string
+  endDate?: Date | string | null
   themeId?: string | null
   userId: string
+  isActive?: boolean
+  deletedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type BudgetUpdateWithoutCategoryInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
+  spent?: Prisma.FloatFieldUpdateOperationsInput | number
+  period?: Prisma.StringFieldUpdateOperationsInput | string
+  startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   theme?: Prisma.ThemeUpdateOneWithoutBudgetsNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutBudgetsNestedInput
 }
@@ -702,31 +953,59 @@ export type BudgetUpdateWithoutCategoryInput = {
 export type BudgetUncheckedUpdateWithoutCategoryInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  spent?: Prisma.FloatFieldUpdateOperationsInput | number
+  period?: Prisma.StringFieldUpdateOperationsInput | string
+  startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   themeId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type BudgetUncheckedUpdateManyWithoutCategoryInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  spent?: Prisma.FloatFieldUpdateOperationsInput | number
+  period?: Prisma.StringFieldUpdateOperationsInput | string
+  startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   themeId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type BudgetCreateManyThemeInput = {
   id?: string
   amount: number
-  createdAt?: Date | string
+  spent?: number
+  period?: string
+  startDate?: Date | string
+  endDate?: Date | string | null
   categoryId: string
   userId: string
+  isActive?: boolean
+  deletedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type BudgetUpdateWithoutThemeInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
+  spent?: Prisma.FloatFieldUpdateOperationsInput | number
+  period?: Prisma.StringFieldUpdateOperationsInput | string
+  startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   category?: Prisma.CategoryUpdateOneRequiredWithoutBudgetsNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutBudgetsNestedInput
 }
@@ -734,17 +1013,31 @@ export type BudgetUpdateWithoutThemeInput = {
 export type BudgetUncheckedUpdateWithoutThemeInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  spent?: Prisma.FloatFieldUpdateOperationsInput | number
+  period?: Prisma.StringFieldUpdateOperationsInput | string
+  startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type BudgetUncheckedUpdateManyWithoutThemeInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  spent?: Prisma.FloatFieldUpdateOperationsInput | number
+  period?: Prisma.StringFieldUpdateOperationsInput | string
+  startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -752,10 +1045,17 @@ export type BudgetUncheckedUpdateManyWithoutThemeInput = {
 export type BudgetSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   amount?: boolean
-  createdAt?: boolean
+  spent?: boolean
+  period?: boolean
+  startDate?: boolean
+  endDate?: boolean
   categoryId?: boolean
   themeId?: boolean
   userId?: boolean
+  isActive?: boolean
+  deletedAt?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   category?: boolean | Prisma.CategoryDefaultArgs<ExtArgs>
   theme?: boolean | Prisma.Budget$themeArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -764,10 +1064,17 @@ export type BudgetSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
 export type BudgetSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   amount?: boolean
-  createdAt?: boolean
+  spent?: boolean
+  period?: boolean
+  startDate?: boolean
+  endDate?: boolean
   categoryId?: boolean
   themeId?: boolean
   userId?: boolean
+  isActive?: boolean
+  deletedAt?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   category?: boolean | Prisma.CategoryDefaultArgs<ExtArgs>
   theme?: boolean | Prisma.Budget$themeArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -776,10 +1083,17 @@ export type BudgetSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
 export type BudgetSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   amount?: boolean
-  createdAt?: boolean
+  spent?: boolean
+  period?: boolean
+  startDate?: boolean
+  endDate?: boolean
   categoryId?: boolean
   themeId?: boolean
   userId?: boolean
+  isActive?: boolean
+  deletedAt?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   category?: boolean | Prisma.CategoryDefaultArgs<ExtArgs>
   theme?: boolean | Prisma.Budget$themeArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -788,13 +1102,20 @@ export type BudgetSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
 export type BudgetSelectScalar = {
   id?: boolean
   amount?: boolean
-  createdAt?: boolean
+  spent?: boolean
+  period?: boolean
+  startDate?: boolean
+  endDate?: boolean
   categoryId?: boolean
   themeId?: boolean
   userId?: boolean
+  isActive?: boolean
+  deletedAt?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type BudgetOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "amount" | "createdAt" | "categoryId" | "themeId" | "userId", ExtArgs["result"]["budget"]>
+export type BudgetOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "amount" | "spent" | "period" | "startDate" | "endDate" | "categoryId" | "themeId" | "userId" | "isActive" | "deletedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["budget"]>
 export type BudgetInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   category?: boolean | Prisma.CategoryDefaultArgs<ExtArgs>
   theme?: boolean | Prisma.Budget$themeArgs<ExtArgs>
@@ -821,10 +1142,17 @@ export type $BudgetPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     amount: number
-    createdAt: Date
+    spent: number
+    period: string
+    startDate: Date
+    endDate: Date | null
     categoryId: string
     themeId: string | null
     userId: string
+    isActive: boolean
+    deletedAt: Date | null
+    createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["budget"]>
   composites: {}
 }
@@ -1253,10 +1581,17 @@ export interface Prisma__BudgetClient<T, Null = never, ExtArgs extends runtime.T
 export interface BudgetFieldRefs {
   readonly id: Prisma.FieldRef<"Budget", 'String'>
   readonly amount: Prisma.FieldRef<"Budget", 'Float'>
-  readonly createdAt: Prisma.FieldRef<"Budget", 'DateTime'>
+  readonly spent: Prisma.FieldRef<"Budget", 'Float'>
+  readonly period: Prisma.FieldRef<"Budget", 'String'>
+  readonly startDate: Prisma.FieldRef<"Budget", 'DateTime'>
+  readonly endDate: Prisma.FieldRef<"Budget", 'DateTime'>
   readonly categoryId: Prisma.FieldRef<"Budget", 'String'>
   readonly themeId: Prisma.FieldRef<"Budget", 'String'>
   readonly userId: Prisma.FieldRef<"Budget", 'String'>
+  readonly isActive: Prisma.FieldRef<"Budget", 'Boolean'>
+  readonly deletedAt: Prisma.FieldRef<"Budget", 'DateTime'>
+  readonly createdAt: Prisma.FieldRef<"Budget", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"Budget", 'DateTime'>
 }
     
 

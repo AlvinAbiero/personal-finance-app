@@ -56,6 +56,7 @@ export const ModelName = {
   Category: 'Category',
   Budget: 'Budget',
   Pot: 'Pot',
+  PotTransaction: 'PotTransaction',
   Theme: 'Theme',
   Account: 'Account',
   VerificationToken: 'VerificationToken',
@@ -119,7 +120,12 @@ export const TransactionScalarFieldEnum = {
   categoryId: 'categoryId',
   senderId: 'senderId',
   recipientId: 'recipientId',
-  userId: 'userId'
+  userId: 'userId',
+  frequency: 'frequency',
+  contactName: 'contactName',
+  avatar: 'avatar',
+  recurringBillId: 'recurringBillId',
+  deletedAt: 'deletedAt'
 } as const
 
 export type TransactionScalarFieldEnum = (typeof TransactionScalarFieldEnum)[keyof typeof TransactionScalarFieldEnum]
@@ -131,10 +137,14 @@ export const RecurringBillScalarFieldEnum = {
   amount: 'amount',
   recurrenceDay: 'recurrenceDay',
   recurrenceFrequency: 'recurrenceFrequency',
+  nextDueDate: 'nextDueDate',
+  isActive: 'isActive',
   categoryId: 'categoryId',
   userId: 'userId',
   senderId: 'senderId',
-  recipientId: 'recipientId'
+  recipientId: 'recipientId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type RecurringBillScalarFieldEnum = (typeof RecurringBillScalarFieldEnum)[keyof typeof RecurringBillScalarFieldEnum]
@@ -142,7 +152,9 @@ export type RecurringBillScalarFieldEnum = (typeof RecurringBillScalarFieldEnum)
 
 export const CategoryScalarFieldEnum = {
   id: 'id',
-  name: 'name'
+  name: 'name',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type CategoryScalarFieldEnum = (typeof CategoryScalarFieldEnum)[keyof typeof CategoryScalarFieldEnum]
@@ -151,10 +163,17 @@ export type CategoryScalarFieldEnum = (typeof CategoryScalarFieldEnum)[keyof typ
 export const BudgetScalarFieldEnum = {
   id: 'id',
   amount: 'amount',
-  createdAt: 'createdAt',
+  spent: 'spent',
+  period: 'period',
+  startDate: 'startDate',
+  endDate: 'endDate',
   categoryId: 'categoryId',
   themeId: 'themeId',
-  userId: 'userId'
+  userId: 'userId',
+  isActive: 'isActive',
+  deletedAt: 'deletedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type BudgetScalarFieldEnum = (typeof BudgetScalarFieldEnum)[keyof typeof BudgetScalarFieldEnum]
@@ -165,11 +184,26 @@ export const PotScalarFieldEnum = {
   name: 'name',
   targetAmount: 'targetAmount',
   currentAmount: 'currentAmount',
+  targetDate: 'targetDate',
   userId: 'userId',
-  themeId: 'themeId'
+  themeId: 'themeId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type PotScalarFieldEnum = (typeof PotScalarFieldEnum)[keyof typeof PotScalarFieldEnum]
+
+
+export const PotTransactionScalarFieldEnum = {
+  id: 'id',
+  potId: 'potId',
+  amount: 'amount',
+  type: 'type',
+  note: 'note',
+  createdAt: 'createdAt'
+} as const
+
+export type PotTransactionScalarFieldEnum = (typeof PotTransactionScalarFieldEnum)[keyof typeof PotTransactionScalarFieldEnum]
 
 
 export const ThemeScalarFieldEnum = {
@@ -212,10 +246,12 @@ export type VerificationTokenScalarFieldEnum = (typeof VerificationTokenScalarFi
 export const RecurringAlertScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
+  recurringBillId: 'recurringBillId',
   transactionId: 'transactionId',
   pattern: 'pattern',
   lastDetectedDate: 'lastDetectedDate',
   alertSent: 'alertSent',
+  alertSentAt: 'alertSentAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

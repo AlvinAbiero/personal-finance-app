@@ -69,17 +69,34 @@ model Transaction {
   isRecurring Boolean   @default(false)
   categoryId  String?
   category    Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  // senderId    String?
+  // sender      User?     @relation("senderTransactions", fields: [senderId], references: [accountId], onDelete: SetNull)
+  // recipientId String?
+  // recipient   User?     @relation("recipientTransactions", fields: [recipientId], references: [accountId], onDelete: SetNull)
   senderId    String?
-  sender      User?     @relation("senderTransactions", fields: [senderId], references: [accountId], onDelete: SetNull)
+  sender      User?     @relation("senderTransactions", fields: [senderId], references: [id], onDelete: SetNull)
   recipientId String?
-  recipient   User?     @relation("recipientTransactions", fields: [recipientId], references: [accountId], onDelete: SetNull)
+  recipient   User?     @relation("recipientTransactions", fields: [recipientId], references: [id], onDelete: SetNull)
   userId      String
   user        User      @relation("userTransactions", fields: [userId], references: [id], onDelete: Cascade)
+
+
+  frequency   String?  // "WEEKLY", "BIWEEKLY", "MONTHLY", "YEARLY"
+  contactName String?   
+  avatar      String? 
+
+  recurringBillId String?
+  recurringBill   RecurringBill? @relation("recurringBillTransactions", fields: [recurringBillId], references: [id], onDelete: SetNull)
+
+  deletedAt DateTime? // ✅ ADD: For soft deletes
+
 
   @@index([userId])
   @@index([categoryId])
   @@index([senderId])
   @@index([recipientId])
+  @@index([recurringBillId])
+   @@index([deletedAt])
   @@map("transactions")
 }
 
@@ -89,6 +106,8 @@ model RecurringBill {
   amount              Float
   recurrenceDay       Int?
   recurrenceFrequency String?
+  nextDueDate         DateTime? // ✅ ADD: Track when next bill is due
+  isActive            Boolean   @default(true) // ✅ ADD: Allow pausing bills
   categoryId          String?
   category            Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
   userId              String
@@ -98,10 +117,16 @@ model RecurringBill {
   recipientId         String?
   recipient           User?     @relation("recurringBillRecipient", fields: [recipientId], references: [accountId], onDelete: SetNull)
 
+  generatedTransactions Transaction[] @relation("recurringBillTransactions")
+
+  createdAt DateTime @default(now()) 
+  updatedAt DateTime @updatedAt      
+
   @@index([userId])
   @@index([categoryId])
   @@index([senderId])
   @@index([recipientId])
+  @@index([nextDueDate]) // ✅ ADD: For finding due bills
   @@map("recurring_bills")
 }
 
@@ -112,13 +137,19 @@ model Category {
   budgets        Budget[]
   recurringBills RecurringBill[]
 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt      
+
   @@map("categories")
 }
 
 model Budget {
   id         String   @id @default(uuid())
   amount     Float
-  createdAt  DateTime @default(now())
+  spent      Float    @default(0) // ✅ ADD: Track current spending
+  period     String   @default("MONTHLY") // ✅ ADD: "WEEKLY", "MONTHLY", "YEARLY"
+  startDate  DateTime @default(now()) // ✅ ADD
+  endDate    DateTime? // ✅ ADD
   categoryId String
   category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
   themeId    String?
@@ -126,9 +157,16 @@ model Budget {
   userId     String
   user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
+  isActive  Boolean  @default(true)
+  deletedAt DateTime?
+
+  createdAt  DateTime @default(now())
+  updatedAt DateTime @updatedAt 
+
   @@index([userId])
   @@index([categoryId])
   @@index([themeId])
+  @@index([startDate, endDate])
   @@map("budgets")
 }
 
@@ -137,14 +175,33 @@ model Pot {
   name          String
   targetAmount  Float
   currentAmount Float   @default(0)
+  targetDate    DateTime? // ✅ ADD: When do they want to reach the target?
   userId        String
   user          User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   themeId       String?
   theme         Theme?  @relation("potThemes", fields: [themeId], references: [id], onDelete: SetNull)
 
+  transactions  PotTransaction[] //  Track deposits/withdrawals
+
+  createdAt  DateTime @default(now())
+  updatedAt DateTime @updatedAt 
+
   @@index([userId])
   @@index([themeId])
   @@map("pots")
+}
+
+model PotTransaction {
+  id        String   @id @default(uuid())
+  potId     String
+  pot       Pot      @relation(fields: [potId], references: [id], onDelete: Cascade)
+  amount    Float    // Positive for deposits, negative for withdrawals
+  type      String   // "DEPOSIT", "WITHDRAWAL"
+  note      String?
+  createdAt DateTime @default(now())
+  
+  @@index([potId])
+  @@map("pot_transactions")
 }
 
 model Theme {
@@ -202,15 +259,18 @@ model RecurringAlert {
   userId String
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
+  recurringBillId  String? // ✅ CHANGE: Link to actual recurring bill
   transactionId    String?
   pattern          String // e.g., "WEEKLY", "MONTHLY"
   lastDetectedDate DateTime
   alertSent        Boolean  @default(false)
+  alertSentAt      DateTime? // ✅ ADD: When was alert sent?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@index([userId])
+  @@index([recurringBillId]) 
 }
 
 model BudgetAlert {
