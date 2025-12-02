@@ -89,10 +89,10 @@ export const UserScalarFieldEnum = {
   avatarUrl: 'avatarUrl',
   currency: 'currency',
   language: 'language',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
   accountId: 'accountId',
-  initialBalance: 'initialBalance'
+  initialBalance: 'initialBalance',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -112,19 +112,21 @@ export type PasswordRecoveryScalarFieldEnum = (typeof PasswordRecoveryScalarFiel
 
 export const TransactionScalarFieldEnum = {
   id: 'id',
+  type: 'type',
   description: 'description',
   amount: 'amount',
-  createdAt: 'createdAt',
+  frequency: 'frequency',
+  contactName: 'contactName',
+  avatar: 'avatar',
   date: 'date',
   isRecurring: 'isRecurring',
   categoryId: 'categoryId',
   senderId: 'senderId',
   recipientId: 'recipientId',
   userId: 'userId',
-  frequency: 'frequency',
-  contactName: 'contactName',
-  avatar: 'avatar',
   recurringBillId: 'recurringBillId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
   deletedAt: 'deletedAt'
 } as const
 
@@ -167,10 +169,10 @@ export const BudgetScalarFieldEnum = {
   period: 'period',
   startDate: 'startDate',
   endDate: 'endDate',
+  isActive: 'isActive',
   categoryId: 'categoryId',
   themeId: 'themeId',
   userId: 'userId',
-  isActive: 'isActive',
   deletedAt: 'deletedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'

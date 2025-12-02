@@ -36,55 +36,61 @@ export type TransactionSumAggregateOutputType = {
 
 export type TransactionMinAggregateOutputType = {
   id: string | null
+  type: string | null
   description: string | null
   amount: number | null
-  createdAt: Date | null
+  frequency: string | null
+  contactName: string | null
+  avatar: string | null
   date: Date | null
   isRecurring: boolean | null
   categoryId: string | null
   senderId: string | null
   recipientId: string | null
   userId: string | null
-  frequency: string | null
-  contactName: string | null
-  avatar: string | null
   recurringBillId: string | null
+  createdAt: Date | null
+  updatedAt: Date | null
   deletedAt: Date | null
 }
 
 export type TransactionMaxAggregateOutputType = {
   id: string | null
+  type: string | null
   description: string | null
   amount: number | null
-  createdAt: Date | null
+  frequency: string | null
+  contactName: string | null
+  avatar: string | null
   date: Date | null
   isRecurring: boolean | null
   categoryId: string | null
   senderId: string | null
   recipientId: string | null
   userId: string | null
-  frequency: string | null
-  contactName: string | null
-  avatar: string | null
   recurringBillId: string | null
+  createdAt: Date | null
+  updatedAt: Date | null
   deletedAt: Date | null
 }
 
 export type TransactionCountAggregateOutputType = {
   id: number
+  type: number
   description: number
   amount: number
-  createdAt: number
+  frequency: number
+  contactName: number
+  avatar: number
   date: number
   isRecurring: number
   categoryId: number
   senderId: number
   recipientId: number
   userId: number
-  frequency: number
-  contactName: number
-  avatar: number
   recurringBillId: number
+  createdAt: number
+  updatedAt: number
   deletedAt: number
   _all: number
 }
@@ -100,55 +106,61 @@ export type TransactionSumAggregateInputType = {
 
 export type TransactionMinAggregateInputType = {
   id?: true
+  type?: true
   description?: true
   amount?: true
-  createdAt?: true
+  frequency?: true
+  contactName?: true
+  avatar?: true
   date?: true
   isRecurring?: true
   categoryId?: true
   senderId?: true
   recipientId?: true
   userId?: true
-  frequency?: true
-  contactName?: true
-  avatar?: true
   recurringBillId?: true
+  createdAt?: true
+  updatedAt?: true
   deletedAt?: true
 }
 
 export type TransactionMaxAggregateInputType = {
   id?: true
+  type?: true
   description?: true
   amount?: true
-  createdAt?: true
+  frequency?: true
+  contactName?: true
+  avatar?: true
   date?: true
   isRecurring?: true
   categoryId?: true
   senderId?: true
   recipientId?: true
   userId?: true
-  frequency?: true
-  contactName?: true
-  avatar?: true
   recurringBillId?: true
+  createdAt?: true
+  updatedAt?: true
   deletedAt?: true
 }
 
 export type TransactionCountAggregateInputType = {
   id?: true
+  type?: true
   description?: true
   amount?: true
-  createdAt?: true
+  frequency?: true
+  contactName?: true
+  avatar?: true
   date?: true
   isRecurring?: true
   categoryId?: true
   senderId?: true
   recipientId?: true
   userId?: true
-  frequency?: true
-  contactName?: true
-  avatar?: true
   recurringBillId?: true
+  createdAt?: true
+  updatedAt?: true
   deletedAt?: true
   _all?: true
 }
@@ -241,19 +253,21 @@ export type TransactionGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inte
 
 export type TransactionGroupByOutputType = {
   id: string
+  type: string
   description: string | null
   amount: number
-  createdAt: Date
+  frequency: string | null
+  contactName: string | null
+  avatar: string | null
   date: Date
   isRecurring: boolean
   categoryId: string | null
   senderId: string | null
   recipientId: string | null
   userId: string
-  frequency: string | null
-  contactName: string | null
-  avatar: string | null
   recurringBillId: string | null
+  createdAt: Date
+  updatedAt: Date
   deletedAt: Date | null
   _count: TransactionCountAggregateOutputType | null
   _avg: TransactionAvgAggregateOutputType | null
@@ -282,19 +296,21 @@ export type TransactionWhereInput = {
   OR?: Prisma.TransactionWhereInput[]
   NOT?: Prisma.TransactionWhereInput | Prisma.TransactionWhereInput[]
   id?: Prisma.StringFilter<"Transaction"> | string
+  type?: Prisma.StringFilter<"Transaction"> | string
   description?: Prisma.StringNullableFilter<"Transaction"> | string | null
   amount?: Prisma.FloatFilter<"Transaction"> | number
-  createdAt?: Prisma.DateTimeFilter<"Transaction"> | Date | string
+  frequency?: Prisma.StringNullableFilter<"Transaction"> | string | null
+  contactName?: Prisma.StringNullableFilter<"Transaction"> | string | null
+  avatar?: Prisma.StringNullableFilter<"Transaction"> | string | null
   date?: Prisma.DateTimeFilter<"Transaction"> | Date | string
   isRecurring?: Prisma.BoolFilter<"Transaction"> | boolean
   categoryId?: Prisma.StringNullableFilter<"Transaction"> | string | null
   senderId?: Prisma.StringNullableFilter<"Transaction"> | string | null
   recipientId?: Prisma.StringNullableFilter<"Transaction"> | string | null
   userId?: Prisma.StringFilter<"Transaction"> | string
-  frequency?: Prisma.StringNullableFilter<"Transaction"> | string | null
-  contactName?: Prisma.StringNullableFilter<"Transaction"> | string | null
-  avatar?: Prisma.StringNullableFilter<"Transaction"> | string | null
   recurringBillId?: Prisma.StringNullableFilter<"Transaction"> | string | null
+  createdAt?: Prisma.DateTimeFilter<"Transaction"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Transaction"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"Transaction"> | Date | string | null
   category?: Prisma.XOR<Prisma.CategoryNullableScalarRelationFilter, Prisma.CategoryWhereInput> | null
   sender?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
@@ -305,19 +321,21 @@ export type TransactionWhereInput = {
 
 export type TransactionOrderByWithRelationInput = {
   id?: Prisma.SortOrder
+  type?: Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   amount?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
+  frequency?: Prisma.SortOrderInput | Prisma.SortOrder
+  contactName?: Prisma.SortOrderInput | Prisma.SortOrder
+  avatar?: Prisma.SortOrderInput | Prisma.SortOrder
   date?: Prisma.SortOrder
   isRecurring?: Prisma.SortOrder
   categoryId?: Prisma.SortOrderInput | Prisma.SortOrder
   senderId?: Prisma.SortOrderInput | Prisma.SortOrder
   recipientId?: Prisma.SortOrderInput | Prisma.SortOrder
   userId?: Prisma.SortOrder
-  frequency?: Prisma.SortOrderInput | Prisma.SortOrder
-  contactName?: Prisma.SortOrderInput | Prisma.SortOrder
-  avatar?: Prisma.SortOrderInput | Prisma.SortOrder
   recurringBillId?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   category?: Prisma.CategoryOrderByWithRelationInput
   sender?: Prisma.UserOrderByWithRelationInput
@@ -331,19 +349,21 @@ export type TransactionWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.TransactionWhereInput | Prisma.TransactionWhereInput[]
   OR?: Prisma.TransactionWhereInput[]
   NOT?: Prisma.TransactionWhereInput | Prisma.TransactionWhereInput[]
+  type?: Prisma.StringFilter<"Transaction"> | string
   description?: Prisma.StringNullableFilter<"Transaction"> | string | null
   amount?: Prisma.FloatFilter<"Transaction"> | number
-  createdAt?: Prisma.DateTimeFilter<"Transaction"> | Date | string
+  frequency?: Prisma.StringNullableFilter<"Transaction"> | string | null
+  contactName?: Prisma.StringNullableFilter<"Transaction"> | string | null
+  avatar?: Prisma.StringNullableFilter<"Transaction"> | string | null
   date?: Prisma.DateTimeFilter<"Transaction"> | Date | string
   isRecurring?: Prisma.BoolFilter<"Transaction"> | boolean
   categoryId?: Prisma.StringNullableFilter<"Transaction"> | string | null
   senderId?: Prisma.StringNullableFilter<"Transaction"> | string | null
   recipientId?: Prisma.StringNullableFilter<"Transaction"> | string | null
   userId?: Prisma.StringFilter<"Transaction"> | string
-  frequency?: Prisma.StringNullableFilter<"Transaction"> | string | null
-  contactName?: Prisma.StringNullableFilter<"Transaction"> | string | null
-  avatar?: Prisma.StringNullableFilter<"Transaction"> | string | null
   recurringBillId?: Prisma.StringNullableFilter<"Transaction"> | string | null
+  createdAt?: Prisma.DateTimeFilter<"Transaction"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Transaction"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"Transaction"> | Date | string | null
   category?: Prisma.XOR<Prisma.CategoryNullableScalarRelationFilter, Prisma.CategoryWhereInput> | null
   sender?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
@@ -354,19 +374,21 @@ export type TransactionWhereUniqueInput = Prisma.AtLeast<{
 
 export type TransactionOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
+  type?: Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   amount?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
+  frequency?: Prisma.SortOrderInput | Prisma.SortOrder
+  contactName?: Prisma.SortOrderInput | Prisma.SortOrder
+  avatar?: Prisma.SortOrderInput | Prisma.SortOrder
   date?: Prisma.SortOrder
   isRecurring?: Prisma.SortOrder
   categoryId?: Prisma.SortOrderInput | Prisma.SortOrder
   senderId?: Prisma.SortOrderInput | Prisma.SortOrder
   recipientId?: Prisma.SortOrderInput | Prisma.SortOrder
   userId?: Prisma.SortOrder
-  frequency?: Prisma.SortOrderInput | Prisma.SortOrder
-  contactName?: Prisma.SortOrderInput | Prisma.SortOrder
-  avatar?: Prisma.SortOrderInput | Prisma.SortOrder
   recurringBillId?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.TransactionCountOrderByAggregateInput
   _avg?: Prisma.TransactionAvgOrderByAggregateInput
@@ -380,32 +402,36 @@ export type TransactionScalarWhereWithAggregatesInput = {
   OR?: Prisma.TransactionScalarWhereWithAggregatesInput[]
   NOT?: Prisma.TransactionScalarWhereWithAggregatesInput | Prisma.TransactionScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Transaction"> | string
+  type?: Prisma.StringWithAggregatesFilter<"Transaction"> | string
   description?: Prisma.StringNullableWithAggregatesFilter<"Transaction"> | string | null
   amount?: Prisma.FloatWithAggregatesFilter<"Transaction"> | number
-  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Transaction"> | Date | string
+  frequency?: Prisma.StringNullableWithAggregatesFilter<"Transaction"> | string | null
+  contactName?: Prisma.StringNullableWithAggregatesFilter<"Transaction"> | string | null
+  avatar?: Prisma.StringNullableWithAggregatesFilter<"Transaction"> | string | null
   date?: Prisma.DateTimeWithAggregatesFilter<"Transaction"> | Date | string
   isRecurring?: Prisma.BoolWithAggregatesFilter<"Transaction"> | boolean
   categoryId?: Prisma.StringNullableWithAggregatesFilter<"Transaction"> | string | null
   senderId?: Prisma.StringNullableWithAggregatesFilter<"Transaction"> | string | null
   recipientId?: Prisma.StringNullableWithAggregatesFilter<"Transaction"> | string | null
   userId?: Prisma.StringWithAggregatesFilter<"Transaction"> | string
-  frequency?: Prisma.StringNullableWithAggregatesFilter<"Transaction"> | string | null
-  contactName?: Prisma.StringNullableWithAggregatesFilter<"Transaction"> | string | null
-  avatar?: Prisma.StringNullableWithAggregatesFilter<"Transaction"> | string | null
   recurringBillId?: Prisma.StringNullableWithAggregatesFilter<"Transaction"> | string | null
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Transaction"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Transaction"> | Date | string
   deletedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Transaction"> | Date | string | null
 }
 
 export type TransactionCreateInput = {
   id?: string
+  type?: string
   description?: string | null
   amount: number
-  createdAt?: Date | string
-  date?: Date | string
-  isRecurring?: boolean
   frequency?: string | null
   contactName?: string | null
   avatar?: string | null
+  date?: Date | string
+  isRecurring?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
   deletedAt?: Date | string | null
   category?: Prisma.CategoryCreateNestedOneWithoutTransactionsInput
   sender?: Prisma.UserCreateNestedOneWithoutSentTransactionsInput
@@ -416,32 +442,36 @@ export type TransactionCreateInput = {
 
 export type TransactionUncheckedCreateInput = {
   id?: string
+  type?: string
   description?: string | null
   amount: number
-  createdAt?: Date | string
+  frequency?: string | null
+  contactName?: string | null
+  avatar?: string | null
   date?: Date | string
   isRecurring?: boolean
   categoryId?: string | null
   senderId?: string | null
   recipientId?: string | null
   userId: string
-  frequency?: string | null
-  contactName?: string | null
-  avatar?: string | null
   recurringBillId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   deletedAt?: Date | string | null
 }
 
 export type TransactionUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  isRecurring?: Prisma.BoolFieldUpdateOperationsInput | boolean
   frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isRecurring?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   category?: Prisma.CategoryUpdateOneWithoutTransactionsNestedInput
   sender?: Prisma.UserUpdateOneWithoutSentTransactionsNestedInput
@@ -452,68 +482,76 @@ export type TransactionUpdateInput = {
 
 export type TransactionUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   isRecurring?: Prisma.BoolFieldUpdateOperationsInput | boolean
   categoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   senderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recipientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
-  frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recurringBillId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type TransactionCreateManyInput = {
   id?: string
+  type?: string
   description?: string | null
   amount: number
-  createdAt?: Date | string
+  frequency?: string | null
+  contactName?: string | null
+  avatar?: string | null
   date?: Date | string
   isRecurring?: boolean
   categoryId?: string | null
   senderId?: string | null
   recipientId?: string | null
   userId: string
-  frequency?: string | null
-  contactName?: string | null
-  avatar?: string | null
   recurringBillId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   deletedAt?: Date | string | null
 }
 
 export type TransactionUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  isRecurring?: Prisma.BoolFieldUpdateOperationsInput | boolean
   frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isRecurring?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type TransactionUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   isRecurring?: Prisma.BoolFieldUpdateOperationsInput | boolean
   categoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   senderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recipientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
-  frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recurringBillId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
@@ -529,19 +567,21 @@ export type TransactionOrderByRelationAggregateInput = {
 
 export type TransactionCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  type?: Prisma.SortOrder
   description?: Prisma.SortOrder
   amount?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
+  frequency?: Prisma.SortOrder
+  contactName?: Prisma.SortOrder
+  avatar?: Prisma.SortOrder
   date?: Prisma.SortOrder
   isRecurring?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   senderId?: Prisma.SortOrder
   recipientId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  frequency?: Prisma.SortOrder
-  contactName?: Prisma.SortOrder
-  avatar?: Prisma.SortOrder
   recurringBillId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
 }
 
@@ -551,37 +591,41 @@ export type TransactionAvgOrderByAggregateInput = {
 
 export type TransactionMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  type?: Prisma.SortOrder
   description?: Prisma.SortOrder
   amount?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
+  frequency?: Prisma.SortOrder
+  contactName?: Prisma.SortOrder
+  avatar?: Prisma.SortOrder
   date?: Prisma.SortOrder
   isRecurring?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   senderId?: Prisma.SortOrder
   recipientId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  frequency?: Prisma.SortOrder
-  contactName?: Prisma.SortOrder
-  avatar?: Prisma.SortOrder
   recurringBillId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
 }
 
 export type TransactionMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  type?: Prisma.SortOrder
   description?: Prisma.SortOrder
   amount?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
+  frequency?: Prisma.SortOrder
+  contactName?: Prisma.SortOrder
+  avatar?: Prisma.SortOrder
   date?: Prisma.SortOrder
   isRecurring?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   senderId?: Prisma.SortOrder
   recipientId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  frequency?: Prisma.SortOrder
-  contactName?: Prisma.SortOrder
-  avatar?: Prisma.SortOrder
   recurringBillId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
 }
 
@@ -813,14 +857,16 @@ export type TransactionUncheckedUpdateManyWithoutCategoryNestedInput = {
 
 export type TransactionCreateWithoutUserInput = {
   id?: string
+  type?: string
   description?: string | null
   amount: number
-  createdAt?: Date | string
-  date?: Date | string
-  isRecurring?: boolean
   frequency?: string | null
   contactName?: string | null
   avatar?: string | null
+  date?: Date | string
+  isRecurring?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
   deletedAt?: Date | string | null
   category?: Prisma.CategoryCreateNestedOneWithoutTransactionsInput
   sender?: Prisma.UserCreateNestedOneWithoutSentTransactionsInput
@@ -830,18 +876,20 @@ export type TransactionCreateWithoutUserInput = {
 
 export type TransactionUncheckedCreateWithoutUserInput = {
   id?: string
+  type?: string
   description?: string | null
   amount: number
-  createdAt?: Date | string
+  frequency?: string | null
+  contactName?: string | null
+  avatar?: string | null
   date?: Date | string
   isRecurring?: boolean
   categoryId?: string | null
   senderId?: string | null
   recipientId?: string | null
-  frequency?: string | null
-  contactName?: string | null
-  avatar?: string | null
   recurringBillId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   deletedAt?: Date | string | null
 }
 
@@ -857,14 +905,16 @@ export type TransactionCreateManyUserInputEnvelope = {
 
 export type TransactionCreateWithoutSenderInput = {
   id?: string
+  type?: string
   description?: string | null
   amount: number
-  createdAt?: Date | string
-  date?: Date | string
-  isRecurring?: boolean
   frequency?: string | null
   contactName?: string | null
   avatar?: string | null
+  date?: Date | string
+  isRecurring?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
   deletedAt?: Date | string | null
   category?: Prisma.CategoryCreateNestedOneWithoutTransactionsInput
   recipient?: Prisma.UserCreateNestedOneWithoutReceivedTransactionsInput
@@ -874,18 +924,20 @@ export type TransactionCreateWithoutSenderInput = {
 
 export type TransactionUncheckedCreateWithoutSenderInput = {
   id?: string
+  type?: string
   description?: string | null
   amount: number
-  createdAt?: Date | string
+  frequency?: string | null
+  contactName?: string | null
+  avatar?: string | null
   date?: Date | string
   isRecurring?: boolean
   categoryId?: string | null
   recipientId?: string | null
   userId: string
-  frequency?: string | null
-  contactName?: string | null
-  avatar?: string | null
   recurringBillId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   deletedAt?: Date | string | null
 }
 
@@ -901,14 +953,16 @@ export type TransactionCreateManySenderInputEnvelope = {
 
 export type TransactionCreateWithoutRecipientInput = {
   id?: string
+  type?: string
   description?: string | null
   amount: number
-  createdAt?: Date | string
-  date?: Date | string
-  isRecurring?: boolean
   frequency?: string | null
   contactName?: string | null
   avatar?: string | null
+  date?: Date | string
+  isRecurring?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
   deletedAt?: Date | string | null
   category?: Prisma.CategoryCreateNestedOneWithoutTransactionsInput
   sender?: Prisma.UserCreateNestedOneWithoutSentTransactionsInput
@@ -918,18 +972,20 @@ export type TransactionCreateWithoutRecipientInput = {
 
 export type TransactionUncheckedCreateWithoutRecipientInput = {
   id?: string
+  type?: string
   description?: string | null
   amount: number
-  createdAt?: Date | string
+  frequency?: string | null
+  contactName?: string | null
+  avatar?: string | null
   date?: Date | string
   isRecurring?: boolean
   categoryId?: string | null
   senderId?: string | null
   userId: string
-  frequency?: string | null
-  contactName?: string | null
-  avatar?: string | null
   recurringBillId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   deletedAt?: Date | string | null
 }
 
@@ -964,19 +1020,21 @@ export type TransactionScalarWhereInput = {
   OR?: Prisma.TransactionScalarWhereInput[]
   NOT?: Prisma.TransactionScalarWhereInput | Prisma.TransactionScalarWhereInput[]
   id?: Prisma.StringFilter<"Transaction"> | string
+  type?: Prisma.StringFilter<"Transaction"> | string
   description?: Prisma.StringNullableFilter<"Transaction"> | string | null
   amount?: Prisma.FloatFilter<"Transaction"> | number
-  createdAt?: Prisma.DateTimeFilter<"Transaction"> | Date | string
+  frequency?: Prisma.StringNullableFilter<"Transaction"> | string | null
+  contactName?: Prisma.StringNullableFilter<"Transaction"> | string | null
+  avatar?: Prisma.StringNullableFilter<"Transaction"> | string | null
   date?: Prisma.DateTimeFilter<"Transaction"> | Date | string
   isRecurring?: Prisma.BoolFilter<"Transaction"> | boolean
   categoryId?: Prisma.StringNullableFilter<"Transaction"> | string | null
   senderId?: Prisma.StringNullableFilter<"Transaction"> | string | null
   recipientId?: Prisma.StringNullableFilter<"Transaction"> | string | null
   userId?: Prisma.StringFilter<"Transaction"> | string
-  frequency?: Prisma.StringNullableFilter<"Transaction"> | string | null
-  contactName?: Prisma.StringNullableFilter<"Transaction"> | string | null
-  avatar?: Prisma.StringNullableFilter<"Transaction"> | string | null
   recurringBillId?: Prisma.StringNullableFilter<"Transaction"> | string | null
+  createdAt?: Prisma.DateTimeFilter<"Transaction"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Transaction"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"Transaction"> | Date | string | null
 }
 
@@ -1014,14 +1072,16 @@ export type TransactionUpdateManyWithWhereWithoutRecipientInput = {
 
 export type TransactionCreateWithoutRecurringBillInput = {
   id?: string
+  type?: string
   description?: string | null
   amount: number
-  createdAt?: Date | string
-  date?: Date | string
-  isRecurring?: boolean
   frequency?: string | null
   contactName?: string | null
   avatar?: string | null
+  date?: Date | string
+  isRecurring?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
   deletedAt?: Date | string | null
   category?: Prisma.CategoryCreateNestedOneWithoutTransactionsInput
   sender?: Prisma.UserCreateNestedOneWithoutSentTransactionsInput
@@ -1031,18 +1091,20 @@ export type TransactionCreateWithoutRecurringBillInput = {
 
 export type TransactionUncheckedCreateWithoutRecurringBillInput = {
   id?: string
+  type?: string
   description?: string | null
   amount: number
-  createdAt?: Date | string
+  frequency?: string | null
+  contactName?: string | null
+  avatar?: string | null
   date?: Date | string
   isRecurring?: boolean
   categoryId?: string | null
   senderId?: string | null
   recipientId?: string | null
   userId: string
-  frequency?: string | null
-  contactName?: string | null
-  avatar?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   deletedAt?: Date | string | null
 }
 
@@ -1074,14 +1136,16 @@ export type TransactionUpdateManyWithWhereWithoutRecurringBillInput = {
 
 export type TransactionCreateWithoutCategoryInput = {
   id?: string
+  type?: string
   description?: string | null
   amount: number
-  createdAt?: Date | string
-  date?: Date | string
-  isRecurring?: boolean
   frequency?: string | null
   contactName?: string | null
   avatar?: string | null
+  date?: Date | string
+  isRecurring?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
   deletedAt?: Date | string | null
   sender?: Prisma.UserCreateNestedOneWithoutSentTransactionsInput
   recipient?: Prisma.UserCreateNestedOneWithoutReceivedTransactionsInput
@@ -1091,18 +1155,20 @@ export type TransactionCreateWithoutCategoryInput = {
 
 export type TransactionUncheckedCreateWithoutCategoryInput = {
   id?: string
+  type?: string
   description?: string | null
   amount: number
-  createdAt?: Date | string
+  frequency?: string | null
+  contactName?: string | null
+  avatar?: string | null
   date?: Date | string
   isRecurring?: boolean
   senderId?: string | null
   recipientId?: string | null
   userId: string
-  frequency?: string | null
-  contactName?: string | null
-  avatar?: string | null
   recurringBillId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   deletedAt?: Date | string | null
 }
 
@@ -1134,65 +1200,73 @@ export type TransactionUpdateManyWithWhereWithoutCategoryInput = {
 
 export type TransactionCreateManyUserInput = {
   id?: string
+  type?: string
   description?: string | null
   amount: number
-  createdAt?: Date | string
+  frequency?: string | null
+  contactName?: string | null
+  avatar?: string | null
   date?: Date | string
   isRecurring?: boolean
   categoryId?: string | null
   senderId?: string | null
   recipientId?: string | null
-  frequency?: string | null
-  contactName?: string | null
-  avatar?: string | null
   recurringBillId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   deletedAt?: Date | string | null
 }
 
 export type TransactionCreateManySenderInput = {
   id?: string
+  type?: string
   description?: string | null
   amount: number
-  createdAt?: Date | string
+  frequency?: string | null
+  contactName?: string | null
+  avatar?: string | null
   date?: Date | string
   isRecurring?: boolean
   categoryId?: string | null
   recipientId?: string | null
   userId: string
-  frequency?: string | null
-  contactName?: string | null
-  avatar?: string | null
   recurringBillId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   deletedAt?: Date | string | null
 }
 
 export type TransactionCreateManyRecipientInput = {
   id?: string
+  type?: string
   description?: string | null
   amount: number
-  createdAt?: Date | string
+  frequency?: string | null
+  contactName?: string | null
+  avatar?: string | null
   date?: Date | string
   isRecurring?: boolean
   categoryId?: string | null
   senderId?: string | null
   userId: string
-  frequency?: string | null
-  contactName?: string | null
-  avatar?: string | null
   recurringBillId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   deletedAt?: Date | string | null
 }
 
 export type TransactionUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  isRecurring?: Prisma.BoolFieldUpdateOperationsInput | boolean
   frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isRecurring?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   category?: Prisma.CategoryUpdateOneWithoutTransactionsNestedInput
   sender?: Prisma.UserUpdateOneWithoutSentTransactionsNestedInput
@@ -1202,48 +1276,54 @@ export type TransactionUpdateWithoutUserInput = {
 
 export type TransactionUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   isRecurring?: Prisma.BoolFieldUpdateOperationsInput | boolean
   categoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   senderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recipientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recurringBillId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type TransactionUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   isRecurring?: Prisma.BoolFieldUpdateOperationsInput | boolean
   categoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   senderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recipientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recurringBillId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type TransactionUpdateWithoutSenderInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  isRecurring?: Prisma.BoolFieldUpdateOperationsInput | boolean
   frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isRecurring?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   category?: Prisma.CategoryUpdateOneWithoutTransactionsNestedInput
   recipient?: Prisma.UserUpdateOneWithoutReceivedTransactionsNestedInput
@@ -1253,48 +1333,54 @@ export type TransactionUpdateWithoutSenderInput = {
 
 export type TransactionUncheckedUpdateWithoutSenderInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   isRecurring?: Prisma.BoolFieldUpdateOperationsInput | boolean
   categoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recipientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
-  frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recurringBillId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type TransactionUncheckedUpdateManyWithoutSenderInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   isRecurring?: Prisma.BoolFieldUpdateOperationsInput | boolean
   categoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recipientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
-  frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recurringBillId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type TransactionUpdateWithoutRecipientInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  isRecurring?: Prisma.BoolFieldUpdateOperationsInput | boolean
   frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isRecurring?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   category?: Prisma.CategoryUpdateOneWithoutTransactionsNestedInput
   sender?: Prisma.UserUpdateOneWithoutSentTransactionsNestedInput
@@ -1304,65 +1390,73 @@ export type TransactionUpdateWithoutRecipientInput = {
 
 export type TransactionUncheckedUpdateWithoutRecipientInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   isRecurring?: Prisma.BoolFieldUpdateOperationsInput | boolean
   categoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   senderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
-  frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recurringBillId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type TransactionUncheckedUpdateManyWithoutRecipientInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   isRecurring?: Prisma.BoolFieldUpdateOperationsInput | boolean
   categoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   senderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
-  frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recurringBillId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type TransactionCreateManyRecurringBillInput = {
   id?: string
+  type?: string
   description?: string | null
   amount: number
-  createdAt?: Date | string
+  frequency?: string | null
+  contactName?: string | null
+  avatar?: string | null
   date?: Date | string
   isRecurring?: boolean
   categoryId?: string | null
   senderId?: string | null
   recipientId?: string | null
   userId: string
-  frequency?: string | null
-  contactName?: string | null
-  avatar?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   deletedAt?: Date | string | null
 }
 
 export type TransactionUpdateWithoutRecurringBillInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  isRecurring?: Prisma.BoolFieldUpdateOperationsInput | boolean
   frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isRecurring?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   category?: Prisma.CategoryUpdateOneWithoutTransactionsNestedInput
   sender?: Prisma.UserUpdateOneWithoutSentTransactionsNestedInput
@@ -1372,65 +1466,73 @@ export type TransactionUpdateWithoutRecurringBillInput = {
 
 export type TransactionUncheckedUpdateWithoutRecurringBillInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   isRecurring?: Prisma.BoolFieldUpdateOperationsInput | boolean
   categoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   senderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recipientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
-  frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type TransactionUncheckedUpdateManyWithoutRecurringBillInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   isRecurring?: Prisma.BoolFieldUpdateOperationsInput | boolean
   categoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   senderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recipientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
-  frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type TransactionCreateManyCategoryInput = {
   id?: string
+  type?: string
   description?: string | null
   amount: number
-  createdAt?: Date | string
+  frequency?: string | null
+  contactName?: string | null
+  avatar?: string | null
   date?: Date | string
   isRecurring?: boolean
   senderId?: string | null
   recipientId?: string | null
   userId: string
-  frequency?: string | null
-  contactName?: string | null
-  avatar?: string | null
   recurringBillId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   deletedAt?: Date | string | null
 }
 
 export type TransactionUpdateWithoutCategoryInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  isRecurring?: Prisma.BoolFieldUpdateOperationsInput | boolean
   frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isRecurring?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   sender?: Prisma.UserUpdateOneWithoutSentTransactionsNestedInput
   recipient?: Prisma.UserUpdateOneWithoutReceivedTransactionsNestedInput
@@ -1440,35 +1542,39 @@ export type TransactionUpdateWithoutCategoryInput = {
 
 export type TransactionUncheckedUpdateWithoutCategoryInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   isRecurring?: Prisma.BoolFieldUpdateOperationsInput | boolean
   senderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recipientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
-  frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recurringBillId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type TransactionUncheckedUpdateManyWithoutCategoryInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   isRecurring?: Prisma.BoolFieldUpdateOperationsInput | boolean
   senderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recipientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
-  frequency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  contactName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   recurringBillId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
@@ -1476,19 +1582,21 @@ export type TransactionUncheckedUpdateManyWithoutCategoryInput = {
 
 export type TransactionSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  type?: boolean
   description?: boolean
   amount?: boolean
-  createdAt?: boolean
+  frequency?: boolean
+  contactName?: boolean
+  avatar?: boolean
   date?: boolean
   isRecurring?: boolean
   categoryId?: boolean
   senderId?: boolean
   recipientId?: boolean
   userId?: boolean
-  frequency?: boolean
-  contactName?: boolean
-  avatar?: boolean
   recurringBillId?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   deletedAt?: boolean
   category?: boolean | Prisma.Transaction$categoryArgs<ExtArgs>
   sender?: boolean | Prisma.Transaction$senderArgs<ExtArgs>
@@ -1499,19 +1607,21 @@ export type TransactionSelect<ExtArgs extends runtime.Types.Extensions.InternalA
 
 export type TransactionSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  type?: boolean
   description?: boolean
   amount?: boolean
-  createdAt?: boolean
+  frequency?: boolean
+  contactName?: boolean
+  avatar?: boolean
   date?: boolean
   isRecurring?: boolean
   categoryId?: boolean
   senderId?: boolean
   recipientId?: boolean
   userId?: boolean
-  frequency?: boolean
-  contactName?: boolean
-  avatar?: boolean
   recurringBillId?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   deletedAt?: boolean
   category?: boolean | Prisma.Transaction$categoryArgs<ExtArgs>
   sender?: boolean | Prisma.Transaction$senderArgs<ExtArgs>
@@ -1522,19 +1632,21 @@ export type TransactionSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
 
 export type TransactionSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  type?: boolean
   description?: boolean
   amount?: boolean
-  createdAt?: boolean
+  frequency?: boolean
+  contactName?: boolean
+  avatar?: boolean
   date?: boolean
   isRecurring?: boolean
   categoryId?: boolean
   senderId?: boolean
   recipientId?: boolean
   userId?: boolean
-  frequency?: boolean
-  contactName?: boolean
-  avatar?: boolean
   recurringBillId?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   deletedAt?: boolean
   category?: boolean | Prisma.Transaction$categoryArgs<ExtArgs>
   sender?: boolean | Prisma.Transaction$senderArgs<ExtArgs>
@@ -1545,23 +1657,25 @@ export type TransactionSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
 
 export type TransactionSelectScalar = {
   id?: boolean
+  type?: boolean
   description?: boolean
   amount?: boolean
-  createdAt?: boolean
+  frequency?: boolean
+  contactName?: boolean
+  avatar?: boolean
   date?: boolean
   isRecurring?: boolean
   categoryId?: boolean
   senderId?: boolean
   recipientId?: boolean
   userId?: boolean
-  frequency?: boolean
-  contactName?: boolean
-  avatar?: boolean
   recurringBillId?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   deletedAt?: boolean
 }
 
-export type TransactionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "description" | "amount" | "createdAt" | "date" | "isRecurring" | "categoryId" | "senderId" | "recipientId" | "userId" | "frequency" | "contactName" | "avatar" | "recurringBillId" | "deletedAt", ExtArgs["result"]["transaction"]>
+export type TransactionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "type" | "description" | "amount" | "frequency" | "contactName" | "avatar" | "date" | "isRecurring" | "categoryId" | "senderId" | "recipientId" | "userId" | "recurringBillId" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["transaction"]>
 export type TransactionInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   category?: boolean | Prisma.Transaction$categoryArgs<ExtArgs>
   sender?: boolean | Prisma.Transaction$senderArgs<ExtArgs>
@@ -1595,19 +1709,21 @@ export type $TransactionPayload<ExtArgs extends runtime.Types.Extensions.Interna
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
+    type: string
     description: string | null
     amount: number
-    createdAt: Date
+    frequency: string | null
+    contactName: string | null
+    avatar: string | null
     date: Date
     isRecurring: boolean
     categoryId: string | null
     senderId: string | null
     recipientId: string | null
     userId: string
-    frequency: string | null
-    contactName: string | null
-    avatar: string | null
     recurringBillId: string | null
+    createdAt: Date
+    updatedAt: Date
     deletedAt: Date | null
   }, ExtArgs["result"]["transaction"]>
   composites: {}
@@ -2038,19 +2154,21 @@ export interface Prisma__TransactionClient<T, Null = never, ExtArgs extends runt
  */
 export interface TransactionFieldRefs {
   readonly id: Prisma.FieldRef<"Transaction", 'String'>
+  readonly type: Prisma.FieldRef<"Transaction", 'String'>
   readonly description: Prisma.FieldRef<"Transaction", 'String'>
   readonly amount: Prisma.FieldRef<"Transaction", 'Float'>
-  readonly createdAt: Prisma.FieldRef<"Transaction", 'DateTime'>
+  readonly frequency: Prisma.FieldRef<"Transaction", 'String'>
+  readonly contactName: Prisma.FieldRef<"Transaction", 'String'>
+  readonly avatar: Prisma.FieldRef<"Transaction", 'String'>
   readonly date: Prisma.FieldRef<"Transaction", 'DateTime'>
   readonly isRecurring: Prisma.FieldRef<"Transaction", 'Boolean'>
   readonly categoryId: Prisma.FieldRef<"Transaction", 'String'>
   readonly senderId: Prisma.FieldRef<"Transaction", 'String'>
   readonly recipientId: Prisma.FieldRef<"Transaction", 'String'>
   readonly userId: Prisma.FieldRef<"Transaction", 'String'>
-  readonly frequency: Prisma.FieldRef<"Transaction", 'String'>
-  readonly contactName: Prisma.FieldRef<"Transaction", 'String'>
-  readonly avatar: Prisma.FieldRef<"Transaction", 'String'>
   readonly recurringBillId: Prisma.FieldRef<"Transaction", 'String'>
+  readonly createdAt: Prisma.FieldRef<"Transaction", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"Transaction", 'DateTime'>
   readonly deletedAt: Prisma.FieldRef<"Transaction", 'DateTime'>
 }
     

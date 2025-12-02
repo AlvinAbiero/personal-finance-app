@@ -42,10 +42,10 @@ export type UserMinAggregateOutputType = {
   avatarUrl: string | null
   currency: string | null
   language: string | null
-  createdAt: Date | null
-  updatedAt: Date | null
   accountId: string | null
   initialBalance: number | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type UserMaxAggregateOutputType = {
@@ -56,10 +56,10 @@ export type UserMaxAggregateOutputType = {
   avatarUrl: string | null
   currency: string | null
   language: string | null
-  createdAt: Date | null
-  updatedAt: Date | null
   accountId: string | null
   initialBalance: number | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type UserCountAggregateOutputType = {
@@ -70,10 +70,10 @@ export type UserCountAggregateOutputType = {
   avatarUrl: number
   currency: number
   language: number
-  createdAt: number
-  updatedAt: number
   accountId: number
   initialBalance: number
+  createdAt: number
+  updatedAt: number
   _all: number
 }
 
@@ -94,10 +94,10 @@ export type UserMinAggregateInputType = {
   avatarUrl?: true
   currency?: true
   language?: true
-  createdAt?: true
-  updatedAt?: true
   accountId?: true
   initialBalance?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type UserMaxAggregateInputType = {
@@ -108,10 +108,10 @@ export type UserMaxAggregateInputType = {
   avatarUrl?: true
   currency?: true
   language?: true
-  createdAt?: true
-  updatedAt?: true
   accountId?: true
   initialBalance?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type UserCountAggregateInputType = {
@@ -122,10 +122,10 @@ export type UserCountAggregateInputType = {
   avatarUrl?: true
   currency?: true
   language?: true
-  createdAt?: true
-  updatedAt?: true
   accountId?: true
   initialBalance?: true
+  createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -223,10 +223,10 @@ export type UserGroupByOutputType = {
   avatarUrl: string | null
   currency: string
   language: string
-  createdAt: Date
-  updatedAt: Date
   accountId: string
   initialBalance: number | null
+  createdAt: Date
+  updatedAt: Date
   _count: UserCountAggregateOutputType | null
   _avg: UserAvgAggregateOutputType | null
   _sum: UserSumAggregateOutputType | null
@@ -260,10 +260,10 @@ export type UserWhereInput = {
   avatarUrl?: Prisma.StringNullableFilter<"User"> | string | null
   currency?: Prisma.StringFilter<"User"> | string
   language?: Prisma.StringFilter<"User"> | string
-  createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   accountId?: Prisma.StringFilter<"User"> | string
   initialBalance?: Prisma.FloatNullableFilter<"User"> | number | null
+  createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   transactions?: Prisma.TransactionListRelationFilter
   sentTransactions?: Prisma.TransactionListRelationFilter
   receivedTransactions?: Prisma.TransactionListRelationFilter
@@ -287,10 +287,10 @@ export type UserOrderByWithRelationInput = {
   avatarUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   currency?: Prisma.SortOrder
   language?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
   accountId?: Prisma.SortOrder
   initialBalance?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   transactions?: Prisma.TransactionOrderByRelationAggregateInput
   sentTransactions?: Prisma.TransactionOrderByRelationAggregateInput
   receivedTransactions?: Prisma.TransactionOrderByRelationAggregateInput
@@ -318,9 +318,9 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   avatarUrl?: Prisma.StringNullableFilter<"User"> | string | null
   currency?: Prisma.StringFilter<"User"> | string
   language?: Prisma.StringFilter<"User"> | string
+  initialBalance?: Prisma.FloatNullableFilter<"User"> | number | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
-  initialBalance?: Prisma.FloatNullableFilter<"User"> | number | null
   transactions?: Prisma.TransactionListRelationFilter
   sentTransactions?: Prisma.TransactionListRelationFilter
   receivedTransactions?: Prisma.TransactionListRelationFilter
@@ -344,10 +344,10 @@ export type UserOrderByWithAggregationInput = {
   avatarUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   currency?: Prisma.SortOrder
   language?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
   accountId?: Prisma.SortOrder
   initialBalance?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
   _avg?: Prisma.UserAvgOrderByAggregateInput
   _max?: Prisma.UserMaxOrderByAggregateInput
@@ -366,10 +366,10 @@ export type UserScalarWhereWithAggregatesInput = {
   avatarUrl?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   currency?: Prisma.StringWithAggregatesFilter<"User"> | string
   language?: Prisma.StringWithAggregatesFilter<"User"> | string
-  createdAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
-  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
   accountId?: Prisma.StringWithAggregatesFilter<"User"> | string
   initialBalance?: Prisma.FloatNullableWithAggregatesFilter<"User"> | number | null
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
 }
 
 export type UserCreateInput = {
@@ -380,10 +380,10 @@ export type UserCreateInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   transactions?: Prisma.TransactionCreateNestedManyWithoutUserInput
   sentTransactions?: Prisma.TransactionCreateNestedManyWithoutSenderInput
   receivedTransactions?: Prisma.TransactionCreateNestedManyWithoutRecipientInput
@@ -407,10 +407,10 @@ export type UserUncheckedCreateInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutUserInput
   sentTransactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutSenderInput
   receivedTransactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutRecipientInput
@@ -434,10 +434,10 @@ export type UserUpdateInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.TransactionUpdateManyWithoutUserNestedInput
   sentTransactions?: Prisma.TransactionUpdateManyWithoutSenderNestedInput
   receivedTransactions?: Prisma.TransactionUpdateManyWithoutRecipientNestedInput
@@ -461,10 +461,10 @@ export type UserUncheckedUpdateInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.TransactionUncheckedUpdateManyWithoutUserNestedInput
   sentTransactions?: Prisma.TransactionUncheckedUpdateManyWithoutSenderNestedInput
   receivedTransactions?: Prisma.TransactionUncheckedUpdateManyWithoutRecipientNestedInput
@@ -488,10 +488,10 @@ export type UserCreateManyInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type UserUpdateManyMutationInput = {
@@ -502,10 +502,10 @@ export type UserUpdateManyMutationInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type UserUncheckedUpdateManyInput = {
@@ -516,10 +516,10 @@ export type UserUncheckedUpdateManyInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type UserCountOrderByAggregateInput = {
@@ -530,10 +530,10 @@ export type UserCountOrderByAggregateInput = {
   avatarUrl?: Prisma.SortOrder
   currency?: Prisma.SortOrder
   language?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
   accountId?: Prisma.SortOrder
   initialBalance?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type UserAvgOrderByAggregateInput = {
@@ -548,10 +548,10 @@ export type UserMaxOrderByAggregateInput = {
   avatarUrl?: Prisma.SortOrder
   currency?: Prisma.SortOrder
   language?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
   accountId?: Prisma.SortOrder
   initialBalance?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type UserMinOrderByAggregateInput = {
@@ -562,10 +562,10 @@ export type UserMinOrderByAggregateInput = {
   avatarUrl?: Prisma.SortOrder
   currency?: Prisma.SortOrder
   language?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
   accountId?: Prisma.SortOrder
   initialBalance?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type UserSumOrderByAggregateInput = {
@@ -590,16 +590,16 @@ export type NullableStringFieldUpdateOperationsInput = {
   set?: string | null
 }
 
-export type DateTimeFieldUpdateOperationsInput = {
-  set?: Date | string
-}
-
 export type NullableFloatFieldUpdateOperationsInput = {
   set?: number | null
   increment?: number
   decrement?: number
   multiply?: number
   divide?: number
+}
+
+export type DateTimeFieldUpdateOperationsInput = {
+  set?: Date | string
 }
 
 export type UserCreateNestedOneWithoutPasswordRecoveriesInput = {
@@ -800,10 +800,10 @@ export type UserCreateWithoutPasswordRecoveriesInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   transactions?: Prisma.TransactionCreateNestedManyWithoutUserInput
   sentTransactions?: Prisma.TransactionCreateNestedManyWithoutSenderInput
   receivedTransactions?: Prisma.TransactionCreateNestedManyWithoutRecipientInput
@@ -826,10 +826,10 @@ export type UserUncheckedCreateWithoutPasswordRecoveriesInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutUserInput
   sentTransactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutSenderInput
   receivedTransactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutRecipientInput
@@ -868,10 +868,10 @@ export type UserUpdateWithoutPasswordRecoveriesInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.TransactionUpdateManyWithoutUserNestedInput
   sentTransactions?: Prisma.TransactionUpdateManyWithoutSenderNestedInput
   receivedTransactions?: Prisma.TransactionUpdateManyWithoutRecipientNestedInput
@@ -894,10 +894,10 @@ export type UserUncheckedUpdateWithoutPasswordRecoveriesInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.TransactionUncheckedUpdateManyWithoutUserNestedInput
   sentTransactions?: Prisma.TransactionUncheckedUpdateManyWithoutSenderNestedInput
   receivedTransactions?: Prisma.TransactionUncheckedUpdateManyWithoutRecipientNestedInput
@@ -920,10 +920,10 @@ export type UserCreateWithoutSentTransactionsInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   transactions?: Prisma.TransactionCreateNestedManyWithoutUserInput
   receivedTransactions?: Prisma.TransactionCreateNestedManyWithoutRecipientInput
   budgets?: Prisma.BudgetCreateNestedManyWithoutUserInput
@@ -946,10 +946,10 @@ export type UserUncheckedCreateWithoutSentTransactionsInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutUserInput
   receivedTransactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutRecipientInput
   budgets?: Prisma.BudgetUncheckedCreateNestedManyWithoutUserInput
@@ -977,10 +977,10 @@ export type UserCreateWithoutReceivedTransactionsInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   transactions?: Prisma.TransactionCreateNestedManyWithoutUserInput
   sentTransactions?: Prisma.TransactionCreateNestedManyWithoutSenderInput
   budgets?: Prisma.BudgetCreateNestedManyWithoutUserInput
@@ -1003,10 +1003,10 @@ export type UserUncheckedCreateWithoutReceivedTransactionsInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutUserInput
   sentTransactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutSenderInput
   budgets?: Prisma.BudgetUncheckedCreateNestedManyWithoutUserInput
@@ -1034,10 +1034,10 @@ export type UserCreateWithoutTransactionsInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   sentTransactions?: Prisma.TransactionCreateNestedManyWithoutSenderInput
   receivedTransactions?: Prisma.TransactionCreateNestedManyWithoutRecipientInput
   budgets?: Prisma.BudgetCreateNestedManyWithoutUserInput
@@ -1060,10 +1060,10 @@ export type UserUncheckedCreateWithoutTransactionsInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   sentTransactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutSenderInput
   receivedTransactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutRecipientInput
   budgets?: Prisma.BudgetUncheckedCreateNestedManyWithoutUserInput
@@ -1102,10 +1102,10 @@ export type UserUpdateWithoutSentTransactionsInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.TransactionUpdateManyWithoutUserNestedInput
   receivedTransactions?: Prisma.TransactionUpdateManyWithoutRecipientNestedInput
   budgets?: Prisma.BudgetUpdateManyWithoutUserNestedInput
@@ -1128,10 +1128,10 @@ export type UserUncheckedUpdateWithoutSentTransactionsInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.TransactionUncheckedUpdateManyWithoutUserNestedInput
   receivedTransactions?: Prisma.TransactionUncheckedUpdateManyWithoutRecipientNestedInput
   budgets?: Prisma.BudgetUncheckedUpdateManyWithoutUserNestedInput
@@ -1165,10 +1165,10 @@ export type UserUpdateWithoutReceivedTransactionsInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.TransactionUpdateManyWithoutUserNestedInput
   sentTransactions?: Prisma.TransactionUpdateManyWithoutSenderNestedInput
   budgets?: Prisma.BudgetUpdateManyWithoutUserNestedInput
@@ -1191,10 +1191,10 @@ export type UserUncheckedUpdateWithoutReceivedTransactionsInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.TransactionUncheckedUpdateManyWithoutUserNestedInput
   sentTransactions?: Prisma.TransactionUncheckedUpdateManyWithoutSenderNestedInput
   budgets?: Prisma.BudgetUncheckedUpdateManyWithoutUserNestedInput
@@ -1228,10 +1228,10 @@ export type UserUpdateWithoutTransactionsInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sentTransactions?: Prisma.TransactionUpdateManyWithoutSenderNestedInput
   receivedTransactions?: Prisma.TransactionUpdateManyWithoutRecipientNestedInput
   budgets?: Prisma.BudgetUpdateManyWithoutUserNestedInput
@@ -1254,10 +1254,10 @@ export type UserUncheckedUpdateWithoutTransactionsInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sentTransactions?: Prisma.TransactionUncheckedUpdateManyWithoutSenderNestedInput
   receivedTransactions?: Prisma.TransactionUncheckedUpdateManyWithoutRecipientNestedInput
   budgets?: Prisma.BudgetUncheckedUpdateManyWithoutUserNestedInput
@@ -1280,10 +1280,10 @@ export type UserCreateWithoutRecurringBillsInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   transactions?: Prisma.TransactionCreateNestedManyWithoutUserInput
   sentTransactions?: Prisma.TransactionCreateNestedManyWithoutSenderInput
   receivedTransactions?: Prisma.TransactionCreateNestedManyWithoutRecipientInput
@@ -1306,10 +1306,10 @@ export type UserUncheckedCreateWithoutRecurringBillsInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutUserInput
   sentTransactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutSenderInput
   receivedTransactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutRecipientInput
@@ -1337,10 +1337,10 @@ export type UserCreateWithoutSentRecurringBillsInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   transactions?: Prisma.TransactionCreateNestedManyWithoutUserInput
   sentTransactions?: Prisma.TransactionCreateNestedManyWithoutSenderInput
   receivedTransactions?: Prisma.TransactionCreateNestedManyWithoutRecipientInput
@@ -1363,10 +1363,10 @@ export type UserUncheckedCreateWithoutSentRecurringBillsInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutUserInput
   sentTransactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutSenderInput
   receivedTransactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutRecipientInput
@@ -1394,10 +1394,10 @@ export type UserCreateWithoutReceivedRecurringBillsInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   transactions?: Prisma.TransactionCreateNestedManyWithoutUserInput
   sentTransactions?: Prisma.TransactionCreateNestedManyWithoutSenderInput
   receivedTransactions?: Prisma.TransactionCreateNestedManyWithoutRecipientInput
@@ -1420,10 +1420,10 @@ export type UserUncheckedCreateWithoutReceivedRecurringBillsInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutUserInput
   sentTransactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutSenderInput
   receivedTransactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutRecipientInput
@@ -1462,10 +1462,10 @@ export type UserUpdateWithoutRecurringBillsInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.TransactionUpdateManyWithoutUserNestedInput
   sentTransactions?: Prisma.TransactionUpdateManyWithoutSenderNestedInput
   receivedTransactions?: Prisma.TransactionUpdateManyWithoutRecipientNestedInput
@@ -1488,10 +1488,10 @@ export type UserUncheckedUpdateWithoutRecurringBillsInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.TransactionUncheckedUpdateManyWithoutUserNestedInput
   sentTransactions?: Prisma.TransactionUncheckedUpdateManyWithoutSenderNestedInput
   receivedTransactions?: Prisma.TransactionUncheckedUpdateManyWithoutRecipientNestedInput
@@ -1525,10 +1525,10 @@ export type UserUpdateWithoutSentRecurringBillsInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.TransactionUpdateManyWithoutUserNestedInput
   sentTransactions?: Prisma.TransactionUpdateManyWithoutSenderNestedInput
   receivedTransactions?: Prisma.TransactionUpdateManyWithoutRecipientNestedInput
@@ -1551,10 +1551,10 @@ export type UserUncheckedUpdateWithoutSentRecurringBillsInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.TransactionUncheckedUpdateManyWithoutUserNestedInput
   sentTransactions?: Prisma.TransactionUncheckedUpdateManyWithoutSenderNestedInput
   receivedTransactions?: Prisma.TransactionUncheckedUpdateManyWithoutRecipientNestedInput
@@ -1588,10 +1588,10 @@ export type UserUpdateWithoutReceivedRecurringBillsInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.TransactionUpdateManyWithoutUserNestedInput
   sentTransactions?: Prisma.TransactionUpdateManyWithoutSenderNestedInput
   receivedTransactions?: Prisma.TransactionUpdateManyWithoutRecipientNestedInput
@@ -1614,10 +1614,10 @@ export type UserUncheckedUpdateWithoutReceivedRecurringBillsInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.TransactionUncheckedUpdateManyWithoutUserNestedInput
   sentTransactions?: Prisma.TransactionUncheckedUpdateManyWithoutSenderNestedInput
   receivedTransactions?: Prisma.TransactionUncheckedUpdateManyWithoutRecipientNestedInput
@@ -1640,10 +1640,10 @@ export type UserCreateWithoutBudgetsInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   transactions?: Prisma.TransactionCreateNestedManyWithoutUserInput
   sentTransactions?: Prisma.TransactionCreateNestedManyWithoutSenderInput
   receivedTransactions?: Prisma.TransactionCreateNestedManyWithoutRecipientInput
@@ -1666,10 +1666,10 @@ export type UserUncheckedCreateWithoutBudgetsInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutUserInput
   sentTransactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutSenderInput
   receivedTransactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutRecipientInput
@@ -1708,10 +1708,10 @@ export type UserUpdateWithoutBudgetsInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.TransactionUpdateManyWithoutUserNestedInput
   sentTransactions?: Prisma.TransactionUpdateManyWithoutSenderNestedInput
   receivedTransactions?: Prisma.TransactionUpdateManyWithoutRecipientNestedInput
@@ -1734,10 +1734,10 @@ export type UserUncheckedUpdateWithoutBudgetsInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.TransactionUncheckedUpdateManyWithoutUserNestedInput
   sentTransactions?: Prisma.TransactionUncheckedUpdateManyWithoutSenderNestedInput
   receivedTransactions?: Prisma.TransactionUncheckedUpdateManyWithoutRecipientNestedInput
@@ -1760,10 +1760,10 @@ export type UserCreateWithoutPotsInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   transactions?: Prisma.TransactionCreateNestedManyWithoutUserInput
   sentTransactions?: Prisma.TransactionCreateNestedManyWithoutSenderInput
   receivedTransactions?: Prisma.TransactionCreateNestedManyWithoutRecipientInput
@@ -1786,10 +1786,10 @@ export type UserUncheckedCreateWithoutPotsInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutUserInput
   sentTransactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutSenderInput
   receivedTransactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutRecipientInput
@@ -1828,10 +1828,10 @@ export type UserUpdateWithoutPotsInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.TransactionUpdateManyWithoutUserNestedInput
   sentTransactions?: Prisma.TransactionUpdateManyWithoutSenderNestedInput
   receivedTransactions?: Prisma.TransactionUpdateManyWithoutRecipientNestedInput
@@ -1854,10 +1854,10 @@ export type UserUncheckedUpdateWithoutPotsInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.TransactionUncheckedUpdateManyWithoutUserNestedInput
   sentTransactions?: Prisma.TransactionUncheckedUpdateManyWithoutSenderNestedInput
   receivedTransactions?: Prisma.TransactionUncheckedUpdateManyWithoutRecipientNestedInput
@@ -1880,10 +1880,10 @@ export type UserCreateWithoutAccountsInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   transactions?: Prisma.TransactionCreateNestedManyWithoutUserInput
   sentTransactions?: Prisma.TransactionCreateNestedManyWithoutSenderInput
   receivedTransactions?: Prisma.TransactionCreateNestedManyWithoutRecipientInput
@@ -1906,10 +1906,10 @@ export type UserUncheckedCreateWithoutAccountsInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutUserInput
   sentTransactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutSenderInput
   receivedTransactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutRecipientInput
@@ -1948,10 +1948,10 @@ export type UserUpdateWithoutAccountsInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.TransactionUpdateManyWithoutUserNestedInput
   sentTransactions?: Prisma.TransactionUpdateManyWithoutSenderNestedInput
   receivedTransactions?: Prisma.TransactionUpdateManyWithoutRecipientNestedInput
@@ -1974,10 +1974,10 @@ export type UserUncheckedUpdateWithoutAccountsInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.TransactionUncheckedUpdateManyWithoutUserNestedInput
   sentTransactions?: Prisma.TransactionUncheckedUpdateManyWithoutSenderNestedInput
   receivedTransactions?: Prisma.TransactionUncheckedUpdateManyWithoutRecipientNestedInput
@@ -2000,10 +2000,10 @@ export type UserCreateWithoutRecurringAlertsInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   transactions?: Prisma.TransactionCreateNestedManyWithoutUserInput
   sentTransactions?: Prisma.TransactionCreateNestedManyWithoutSenderInput
   receivedTransactions?: Prisma.TransactionCreateNestedManyWithoutRecipientInput
@@ -2026,10 +2026,10 @@ export type UserUncheckedCreateWithoutRecurringAlertsInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutUserInput
   sentTransactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutSenderInput
   receivedTransactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutRecipientInput
@@ -2068,10 +2068,10 @@ export type UserUpdateWithoutRecurringAlertsInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.TransactionUpdateManyWithoutUserNestedInput
   sentTransactions?: Prisma.TransactionUpdateManyWithoutSenderNestedInput
   receivedTransactions?: Prisma.TransactionUpdateManyWithoutRecipientNestedInput
@@ -2094,10 +2094,10 @@ export type UserUncheckedUpdateWithoutRecurringAlertsInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.TransactionUncheckedUpdateManyWithoutUserNestedInput
   sentTransactions?: Prisma.TransactionUncheckedUpdateManyWithoutSenderNestedInput
   receivedTransactions?: Prisma.TransactionUncheckedUpdateManyWithoutRecipientNestedInput
@@ -2120,10 +2120,10 @@ export type UserCreateWithoutBudgetAlertsInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   transactions?: Prisma.TransactionCreateNestedManyWithoutUserInput
   sentTransactions?: Prisma.TransactionCreateNestedManyWithoutSenderInput
   receivedTransactions?: Prisma.TransactionCreateNestedManyWithoutRecipientInput
@@ -2146,10 +2146,10 @@ export type UserUncheckedCreateWithoutBudgetAlertsInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutUserInput
   sentTransactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutSenderInput
   receivedTransactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutRecipientInput
@@ -2188,10 +2188,10 @@ export type UserUpdateWithoutBudgetAlertsInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.TransactionUpdateManyWithoutUserNestedInput
   sentTransactions?: Prisma.TransactionUpdateManyWithoutSenderNestedInput
   receivedTransactions?: Prisma.TransactionUpdateManyWithoutRecipientNestedInput
@@ -2214,10 +2214,10 @@ export type UserUncheckedUpdateWithoutBudgetAlertsInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.TransactionUncheckedUpdateManyWithoutUserNestedInput
   sentTransactions?: Prisma.TransactionUncheckedUpdateManyWithoutSenderNestedInput
   receivedTransactions?: Prisma.TransactionUncheckedUpdateManyWithoutRecipientNestedInput
@@ -2240,10 +2240,10 @@ export type UserCreateWithoutNotificationsInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   transactions?: Prisma.TransactionCreateNestedManyWithoutUserInput
   sentTransactions?: Prisma.TransactionCreateNestedManyWithoutSenderInput
   receivedTransactions?: Prisma.TransactionCreateNestedManyWithoutRecipientInput
@@ -2266,10 +2266,10 @@ export type UserUncheckedCreateWithoutNotificationsInput = {
   avatarUrl?: string | null
   currency?: string
   language?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
   accountId?: string
   initialBalance?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutUserInput
   sentTransactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutSenderInput
   receivedTransactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutRecipientInput
@@ -2308,10 +2308,10 @@ export type UserUpdateWithoutNotificationsInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.TransactionUpdateManyWithoutUserNestedInput
   sentTransactions?: Prisma.TransactionUpdateManyWithoutSenderNestedInput
   receivedTransactions?: Prisma.TransactionUpdateManyWithoutRecipientNestedInput
@@ -2334,10 +2334,10 @@ export type UserUncheckedUpdateWithoutNotificationsInput = {
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   initialBalance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.TransactionUncheckedUpdateManyWithoutUserNestedInput
   sentTransactions?: Prisma.TransactionUncheckedUpdateManyWithoutSenderNestedInput
   receivedTransactions?: Prisma.TransactionUncheckedUpdateManyWithoutRecipientNestedInput
@@ -2499,10 +2499,10 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   avatarUrl?: boolean
   currency?: boolean
   language?: boolean
-  createdAt?: boolean
-  updatedAt?: boolean
   accountId?: boolean
   initialBalance?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   transactions?: boolean | Prisma.User$transactionsArgs<ExtArgs>
   sentTransactions?: boolean | Prisma.User$sentTransactionsArgs<ExtArgs>
   receivedTransactions?: boolean | Prisma.User$receivedTransactionsArgs<ExtArgs>
@@ -2527,10 +2527,10 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   avatarUrl?: boolean
   currency?: boolean
   language?: boolean
-  createdAt?: boolean
-  updatedAt?: boolean
   accountId?: boolean
   initialBalance?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -2541,10 +2541,10 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   avatarUrl?: boolean
   currency?: boolean
   language?: boolean
-  createdAt?: boolean
-  updatedAt?: boolean
   accountId?: boolean
   initialBalance?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectScalar = {
@@ -2555,13 +2555,13 @@ export type UserSelectScalar = {
   avatarUrl?: boolean
   currency?: boolean
   language?: boolean
-  createdAt?: boolean
-  updatedAt?: boolean
   accountId?: boolean
   initialBalance?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "password" | "avatarUrl" | "currency" | "language" | "createdAt" | "updatedAt" | "accountId" | "initialBalance", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "password" | "avatarUrl" | "currency" | "language" | "accountId" | "initialBalance" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   transactions?: boolean | Prisma.User$transactionsArgs<ExtArgs>
   sentTransactions?: boolean | Prisma.User$sentTransactionsArgs<ExtArgs>
@@ -2606,10 +2606,10 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     avatarUrl: string | null
     currency: string
     language: string
-    createdAt: Date
-    updatedAt: Date
     accountId: string
     initialBalance: number | null
+    createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["user"]>
   composites: {}
 }
@@ -3053,10 +3053,10 @@ export interface UserFieldRefs {
   readonly avatarUrl: Prisma.FieldRef<"User", 'String'>
   readonly currency: Prisma.FieldRef<"User", 'String'>
   readonly language: Prisma.FieldRef<"User", 'String'>
-  readonly createdAt: Prisma.FieldRef<"User", 'DateTime'>
-  readonly updatedAt: Prisma.FieldRef<"User", 'DateTime'>
   readonly accountId: Prisma.FieldRef<"User", 'String'>
   readonly initialBalance: Prisma.FieldRef<"User", 'Float'>
+  readonly createdAt: Prisma.FieldRef<"User", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"User", 'DateTime'>
 }
     
 
