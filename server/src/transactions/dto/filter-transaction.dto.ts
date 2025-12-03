@@ -1,11 +1,15 @@
 import {
-  IsDateString,
-  IsNumber,
   IsOptional,
   IsString,
-  Max,
+  IsNumber,
+  IsDateString,
   Min,
+  Max,
+  IsUUID,
+  IsIn,
+  IsBoolean,
 } from 'class-validator';
+import { TRANSACTION_CATEGORIES } from 'src/utils/constants';
 
 export class FilterTransactionsDto {
   @IsOptional()
@@ -17,8 +21,13 @@ export class FilterTransactionsDto {
   dateTo?: string;
 
   @IsOptional()
+  @IsUUID()
+  categoryId?: string;
+
+  @IsOptional()
   @IsString()
-  category?: string;
+  @IsIn(TRANSACTION_CATEGORIES)
+  type?: string;
 
   @IsOptional()
   @IsNumber()
@@ -31,6 +40,10 @@ export class FilterTransactionsDto {
   @IsOptional()
   @IsString()
   searchTerm?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isRecurring?: boolean;
 
   @IsOptional()
   @Min(1)

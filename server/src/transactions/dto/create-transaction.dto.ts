@@ -20,7 +20,7 @@ export class CreateTransactionDto {
   @IsString()
   @IsNotEmpty()
   @IsIn(TRANSACTION_CATEGORIES)
-  category: string;
+  type: string;
 
   @IsString()
   @IsOptional()
@@ -31,8 +31,8 @@ export class CreateTransactionDto {
   contactName?: string;
 
   @IsDateString()
-  @IsNotEmpty()
-  date: string;
+  @IsOptional()
+  date?: string;
 
   @IsBoolean()
   @IsOptional()
